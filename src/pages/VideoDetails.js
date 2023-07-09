@@ -5,7 +5,7 @@ import SuggestVideo from '../components/SuggestedVideos'
 
 const VideoDetails = () => {
   return (
-    <div className='relative flex'>
+    <div className='flex justify-center relative top-[80px] videoDetailpage'>
       <Video />
       <SuggestVideo />
     </div>
