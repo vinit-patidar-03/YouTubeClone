@@ -26,11 +26,11 @@ const SearchResultCard = (props) => {
           <div className='mx-4 my-1 searchChannelDetails'>
             <h4 className='leading-5 text-sm searchResultTitle'>{video?.title}</h4>
             <div className="searchResultDetails1">
-            <h4 className='text-[10px] my-2 text-gray-700'>{video?.viewCount} views • {video?.publishedTimeText}</h4>
-            <h5 className='flex items-center my-3 text-xs text-gray-800 searchResultChannelTitle'><img src={video.channelThumbnail[0].url} width='20px' className='rounded-full mr-2' alt="" />{video?.channelTitle} <img src="/images/verify.png" className='self-center mx-2 w-3' alt="verify" />{video.isLive && <p className='flex items-center text-gray-600 text-sm my-2'><img src="/images/live.png" width='20px' className='mr-2' alt="live" /></p>}</h5>
+              <h4 className='text-[10px] my-2 text-gray-700'>{video?.viewCount} views • {video?.publishedTimeText}</h4>
+              <h5 className='flex items-center my-3 text-xs text-gray-800 searchResultChannelTitle'><img src={video.channelThumbnail[0].url} width='20px' className='rounded-full mr-2' alt="" />{video?.channelTitle} <img src="/images/verify.png" className='self-center mx-2 w-3' alt="verify" />{video.isLive && <p className='flex items-center text-gray-600 text-sm my-2'><img src="/images/live.png" width='20px' className='mr-2' alt="live" /></p>}</h5>
             </div>
             <div className="searchResultDetails">
-            <h5 className='flex items-center my-3 text-xs text-gray-800 searchResultChannelTitle'><img src={video.channelThumbnail[0].url} width='20px' className='rounded-full mr-2' alt="" />{video?.channelTitle} <img src="/images/verify.png" className='self-center mx-2 w-3' alt="verify" />{video.isLive && <p className='flex items-center text-gray-600 text-sm my-2'><img src="/images/live.png" width='20px' className='mr-2' alt="live" /></p>}<p className='text-[10px] my-2 text-gray-700'>{video?.viewCount} views • {video?.publishedTimeText}</p></h5>
+              <h5 className='flex items-center my-3 text-xs text-gray-800 searchResultChannelTitle'>{<img src={video.channelThumbnail[0].url} width='20px' className='rounded-full mr-2' alt="" />}{video?.channelTitle} <img src="/images/verify.png" className='self-center mx-2 w-3' alt="verify" />{video.isLive && <p className='flex items-center text-gray-600 text-sm my-2'><img src="/images/live.png" width='20px' className='mr-2' alt="live" /></p>}<p className='text-[10px] my-2 text-gray-700'>{video?.viewCount} views • {video?.publishedTimeText}</p></h5>
             </div>
             <h6 className='text-gray-700 text-xs my-2 hide'>{video.description}</h6>
           </div>

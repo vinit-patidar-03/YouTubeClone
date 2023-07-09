@@ -14,7 +14,7 @@ const SuggestVideo = () => {
   },[id])
 
   const fetchRelatedContent = (Id)=>
-  {
+  { 
      fetchData(`related?id=${Id}`).then((res)=>
      {
       console.log(res.data.data);
@@ -27,6 +27,10 @@ const SuggestVideo = () => {
             {
                 related.length !==0 && related.map((elem,index)=>
                 {
+                    if(elem.type !== 'video')
+                    {
+                        return false;
+                    }
                     return <SuggestVideoCard video={elem} key={index}/>
                 })
             }

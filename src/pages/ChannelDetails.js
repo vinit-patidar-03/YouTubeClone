@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from 'react'
 import Context from '../context/Context'
 import ChannelVideos from '../components/ChannelVideos';

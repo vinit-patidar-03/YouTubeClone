@@ -176,7 +176,7 @@
         height: 435px;
     }
 
-    .suggestVideoCard,.Video,.videoChannelDetail
+    .suggestVideoCard,.Video,.videoChannelDetail,.videoTitle
     {
         width: 775px;
     }
@@ -217,7 +217,7 @@
         height: 380px;
     }
 
-    .suggestVideoCard,.Video,.videoChannelDetail
+    .suggestVideoCard,.Video,.videoChannelDetail,.videoTitle
     {
         width: 675px;
     }
@@ -235,7 +235,7 @@
         height: 350px;
     }
 
-    .suggestVideoCard,.Video,.videoChannelDetail
+    .suggestVideoCard,.Video,.videoChannelDetail,.videoTitle
     {
         width: 625px;
     }
@@ -266,7 +266,7 @@
         height: 300px;
     }
 
-    .suggestVideoCard,.Video,.videoChannelDetail
+    .suggestVideoCard,.Video,.videoChannelDetail,.videoTitle
     {
         width: 525px;
     }
@@ -354,7 +354,7 @@
 
     .videoChannelDetail,.videoTitle
     {
-        margin: 0px 10px;
+        margin: 5px 10px;
     }
 
     .suggestVideoCard
@@ -365,7 +365,12 @@
     .suggestVideoThumbnail{
         border-radius: 0px;
     }
-
+    
+    .videoTitle
+    {
+        width: 80vw;
+        line-height: 15px;
+    }
     .videoChannelDetail
     {
         width: 80vw;
