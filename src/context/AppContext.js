@@ -8,7 +8,7 @@ const AppContext = (props) => {
     const [selectCategory,setSelectedCategory] = useState('Bhajans');
     const [mainpageVideos,setMainPagevideos] = useState('');
     const [searchResult,setSearResults] = useState('');
-    const [searchcategory,setSearchcategory] = useState('');
+    const [searchcategory,setSearchcategory] = useState('south Indian Movies');
     const [channel,setChannel] = useState('');
 
     

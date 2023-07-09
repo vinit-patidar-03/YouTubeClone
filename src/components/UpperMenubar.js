@@ -6,7 +6,7 @@ const UpperMenubar = () => {
   const {setSelectedCategory} = useContext(Context);
   return (
     <>
-        <nav className='w-[100%] h-12 scroll-track overflow-x-scroll bg-white flex items-center fixed top-[60px] left-[65px] z-20'>
+        <nav className='w-[100%] h-12 scroll-track overflow-x-scroll bg-white flex items-center fixed top-[60px] left-[65px] z-20 upperMenubar'>
             <ul className='flex scroll-track items-center'>
             {
                  Menulist.map((elem,index)=>

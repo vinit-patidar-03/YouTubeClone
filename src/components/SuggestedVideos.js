@@ -23,7 +23,7 @@ const SuggestVideo = () => {
   }
   return (
     <>
-        <div className='absolute right-0 top-20 w-[500px]'>
+        <div className='absolute right-0 top-20 w-[400px]'>
             {
                 related.length !==0 && related.map((elem,index)=>
                 {
