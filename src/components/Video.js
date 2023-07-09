@@ -2,12 +2,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import ReactPlayer from 'react-player/youtube';
 import { fetchData } from '../API/YoutubeAPI';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Context from '../context/Context';
 
 const Video = () => {
     const { channel, setChannel } = useContext(Context);
     const { id, cid } = useParams();
+    const Navigate = useNavigate();
     const [videodetail, setVideoDetail] = useState('');
     console.log(id, cid);
 
@@ -15,6 +16,11 @@ const Video = () => {
         fetchDetails(id);
         fetchChannel(cid)
     }, [id, cid])
+
+    const gotoChannel = ()=>
+    {
+       Navigate(`/channelDetails/${cid}`)
+    }
 
 
     const fetchDetails = (Id) => {
@@ -41,8 +47,8 @@ const Video = () => {
                     <h1 className='text-lg font-semibold mt-2 videoTitle'>{videodetail.title}</h1>
                     <div className='flex mt-2 relative items-center videoChannelDetail'>
                         <img src={channel.meta.avatar[0].url} width='40px' className='rounded-full self-start' alt="channel" />
-                        <div>
-                            <h4 className='flex font-bold ml-2 videoChannelTitle'>{videodetail.channelTitle} <img src="/images/verify.png" width="20px" className='self-center mx-2' alt="verify" /></h4>
+                        <div onClick={()=>{gotoChannel()}}>
+                            <h4 className='flex font-bold ml-2 videoChannelTitle cursor-pointer'>{videodetail.channelTitle} <img src="/images/verify.png" width="20px" className='self-center mx-2' alt="verify" /></h4>
                             {channel.meta.subscriberCountText ? <h1 className='ml-2 text-sm videoSubCount'>{channel.meta.subscriberCountText} subscribers</h1> : ' '}
                             <h4 className='text-sm ml-2 videoSubCount'>{videodetail.viewCount} views</h4>
                         </div>

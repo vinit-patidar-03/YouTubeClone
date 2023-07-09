@@ -8,6 +8,7 @@ import {Routes,Route} from 'react-router-dom'
 import VideoDetails from './pages/VideoDetails';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import ChannelDetails from './pages/ChannelDetails';
 
 function App() {
   const location = useLocation();
@@ -23,6 +24,7 @@ function App() {
                 <Route exact path='/' element={<Home/>}/>
                 <Route path='searchResults/:query' element={<SearchResults/>} />
                 <Route path='video/:id/:cid' element={<VideoDetails />}/>
+                <Route path='channelDetails/:cid' element={<ChannelDetails />}/>
             </Routes>
        </AppContext> 
      </>

@@ -92,6 +92,11 @@
     height: 500px;
 }
 
+.videoTitle
+{
+    width: 890px;
+}
+
 .videoChannelDetail
 {
     width: 890px;
@@ -102,6 +107,10 @@
    display: none;
 }
 
+.ChannelDetailpageAvatar
+{
+    width: 120px;
+}
 /* Media quaries Responsive Design */
 
 @media (max-width:1220px) {
@@ -407,6 +416,34 @@
         padding: 2px 10px;
         font-size: 10px;
     }
+
+    .ChannelDetailpageAvatar
+    {
+        width: 75px;
+    }
+
+    .ChannelDetailpageText
+    {
+        font-size: 12px;
+    }
+}
+
+@media (max-width:528px){
+    .ChannelVideosCard
+    {
+        margin: 0px;
+        width: 100vw;
+    }
+
+    .ChannelVideosThumbnail
+    {
+        border-radius: 0px;
+    }
+
+    .ChannelVideosText
+    {
+        margin: 5px 10px 10px 10px;
+    }
 }
 
 @media (max-width:456px) {
@@ -444,5 +481,11 @@
     .searchresultpage {
         margin: 0px;
         padding: 0px;
+    }
+
+    .ChannelDetailpageAvatar
+    {
+        width: 50px;
+        align-self: center;
     }
 }

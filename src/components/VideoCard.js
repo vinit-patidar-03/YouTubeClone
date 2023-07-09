@@ -33,7 +33,6 @@ const VideoCard = (props) => {
               </div>
             </div>
           </div>
-
         </div>
       </Link>
     </>
