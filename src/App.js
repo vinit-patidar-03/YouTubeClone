@@ -9,6 +9,8 @@ import VideoDetails from './pages/VideoDetails';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import ChannelDetails from './pages/ChannelDetails';
+import ShortVideos from './components/ShortVideos'
+import PlaylistDetails from './components/PlaylistDetails'
 
 function App() {
   const location = useLocation();
@@ -25,6 +27,8 @@ function App() {
                 <Route path='searchResults/:query' element={<SearchResults/>} />
                 <Route path='video/:id/:cid' element={<VideoDetails />}/>
                 <Route path='channelDetails/:cid' element={<ChannelDetails />}/>
+                <Route path='shorts/:id' element={<ShortVideos/>} />
+                <Route path='playlist/:pid' element={ <PlaylistDetails/>} />
             </Routes>
        </AppContext> 
      </>

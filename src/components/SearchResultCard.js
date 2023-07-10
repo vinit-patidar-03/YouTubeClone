@@ -20,8 +20,11 @@ const SearchResultCard = (props) => {
     <>
       <div className='searchResultCard my-2'>
         <div className='flex mb-5 searchResultcard'>
-          <div className='thumb1'>
+          <div className='thumb1 relative'>
             <img src={video?.thumbnail[0]?.url} className='rounded-xl cursor-pointer searchresultThumbnail' onClick={Render} alt="logo" />
+            <div className='text-white text-center absolute right-2 bottom-2'>
+              <h5 className={`${video.lengthText === 'LIVE' ? 'bg-red-600' : 'bg-black'} px-1  rounded-[7px] text-xs`}>{video.isLive ? <p> • {video.lengthText}</p> : <p>{video.lengthText}</p>}</h5>
+            </div>
           </div>
           <div className='mx-4 my-1 searchChannelDetails'>
             <h4 className='leading-5 text-sm searchResultTitle'>{video?.title}</h4>

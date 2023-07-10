@@ -3,25 +3,33 @@ import React, { useContext, useEffect, useState } from 'react'
 import Context from '../context/Context'
 import ChannelVideos from '../components/ChannelVideos';
 import { useParams } from 'react-router-dom';
+import ShortsCard from '../components/ShortsCard';
+import { fetchData } from '../API/YoutubeAPI';
+import PlaylistCard from '../components/PlaylistCard';
 
 const ChannelDetails = () => {
 
-  const {cid} = useParams();
+  const { cid } = useParams();
   const [live, setLive] = useState('');
   const [videos, setVideos] = useState('');
   const [playlist, setPlaylist] = useState('');
   const [shorts, setShorts] = useState('')
-  const [channels, setChannels] = useState('')
-  const [page,setPage] = useState(0);
+  const [videopage, setVideoPage] = useState(0);
+  const [playlistpage, setPlaylistPage] = useState(0);
+  const [channelVideos, setChannelVideos] = useState('')
+  // const [channelShorts, setChannelShorts] = useState('');
+  // const [channelPlaylists, setChannelPlaylists] = useState('');
   const { channel } = useContext(Context);
-  console.log(channel);
+  // console.log(channel);
+
 
   useEffect(() => {
     filterLive();
-    filterChannel();
-    filterPlaylist();
     filterVideos();
     filterShorts();
+    fetchMoreChannelVideos();
+    fetchMoreChannelshorts();
+    fetchMoreChannelplaylists();
   }, [])
 
   const filterLive = () => {
@@ -40,21 +48,6 @@ const ChannelDetails = () => {
     )
   }
 
-  const filterPlaylist = () => {
-    setPlaylist(
-      channel.data.filter((elem) => {
-        return elem.type === 'playlist_listing'
-      })
-    )
-  }
-
-  const filterChannel = () => {
-    setChannels(
-      channel.data.filter((elem) => {
-        return elem.type === 'channel_listing'
-      })
-    )
-  }
 
   const filterShorts = () => {
     setShorts(
@@ -64,23 +57,47 @@ const ChannelDetails = () => {
     )
   }
 
-  const ChangePage = (e)=>
-  {
-    if(e ==='incr' && page !== videos.length-1)
-    {
-      setPage(page+1);
+  const ChangePage = (event, type) => {
+    if (event === 'incr' && videopage !== videos.length - 1 && type === 'video') {
+      setVideoPage(videopage + 1);
     }
-    else if(e === 'decr' && page !== 0)
-    {
-      setPage(page-1)
+    else if (event === 'decr' && videopage !== 0 && type === 'video') {
+      setVideoPage(videopage - 1)
+    }
+    else if (event === 'incr' && playlistpage !== playlist.length - 1 && type === 'playlist') {
+      setPlaylistPage(playlistpage + 1);
+    }
+    else if (event === 'decr' && playlistpage !== 0 && type === 'playlist') {
+      setPlaylistPage(playlistpage - 1)
     }
   }
 
-  console.log(live)
-  console.log(videos)
+  const fetchMoreChannelVideos = () => {
+    fetchData(`channel/videos?id=${cid}`).then((res) => {
+      console.log(res.data.data);
+      setChannelVideos(res.data.data)
+    })
+  }
+
+  const fetchMoreChannelshorts = () => {
+    fetchData(`channel/shorts?id=${cid}`).then((res) => {
+      // console.log(res.data.data);
+      // setChannelShorts(res.data.data)
+    })
+  }
+
+  const fetchMoreChannelplaylists = () => {
+    fetchData(`channel/playlists?id=${cid}`).then((res) => {
+      console.log(res.data.data);
+      setPlaylist(res.data.data);
+    })
+  }
+
+  // console.log(live)
+  // console.log(videos)
   console.log(playlist)
-  console.log(shorts)
-  console.log(channels)
+  // console.log(shorts)
+  // console.log(channels)
   return (
     <>
       <div>
@@ -108,46 +125,78 @@ const ChannelDetails = () => {
         </div>
         <div className='mb-3'>
           <ul className='flex justify-evenly'>
-            <li className='cursor-pointer font-semibold'>Live</li>
-            <li className='cursor-pointer font-semibold'>Videos</li>
-            <li className='cursor-pointer font-semibold'>Playlist</li>
-            <li className='cursor-pointer font-semibold'>Shorts</li>
-            <li className='cursor-pointer font-semibold'>Channels</li>
+            <li className='cursor-pointer font-semibold'><a href="#Live">Live</a></li>
+            <li className='cursor-pointer font-semibold'><a href="#Videos">Videos</a></li>
+            <li className='cursor-pointer font-semibold'><a href="#Playlist">Playlists</a></li>
+            <li className='cursor-pointer font-semibold'><a href="#Shorts">Shorts</a></li>
           </ul>
         </div>
         <hr />
 
-        <section>
+        <section id='Live' className='my-3'>
           <h1 className='text-center my-5 text-lg font-bold'>Live</h1>
           <div className='flex flex-wrap justify-center my-5'>
             {live.length !== 0 && live[0].data.map((elem, index) => {
-              return <ChannelVideos video={elem} key={index} cid={cid}/>
+              return <ChannelVideos video={elem} key={index} cid={cid} />
             })}
             {live.length === 0 && <h1 className='text-center text-xl'>No Live Videos</h1>}
           </div>
         </section>
-
-        <section>
+        <hr />
+        <section id='Videos' className='my-3'>
           <h1 className='text-center my-5 text-lg font-bold'>Videos</h1>
           <div className='flex flex-wrap justify-center my-5'>
-            {videos.length !== 0 && videos[page].data.map((elem, index) => {
-              return <ChannelVideos video={elem} key={index} cid={cid}/>
+            {channelVideos.length !== 0 && channelVideos.map((elem, index) => {
+              return <ChannelVideos video={elem} key={index} cid={cid} />
+            })}
+            {videos.length === 0 && <h1 className='text-center text-xl'>No Videos</h1>}
+          </div>
+          <hr />
+          <h1 className='text-center my-5 text-lg font-bold'>Channel & Other Channel Videos</h1>
+          <div className='flex flex-wrap justify-center my-5'>
+            {videos.length !== 0 && videos[videopage].data.map((elem, index) => {
+              return <ChannelVideos video={elem} key={index} cid={cid} />
             })}
             {videos.length === 0 && <h1 className='text-center text-xl'>No Videos</h1>}
           </div>
           <div className='flex justify-evenly'>
-            <button onClick={()=>{ChangePage('decr')}} className='py-2 px-5 bg-black text-white rounded-full font-semibold'>Previous</button>
-            <button onClick={()=>{ChangePage('incr')}} className='py-2 px-5 bg-black text-white rounded-full font-semibold'>Next</button>
+            <button onClick={() => { ChangePage('decr', 'video') }} className='py-2 px-5 bg-black text-white rounded-full font-semibold'>Previous</button>
+            <button onClick={() => { ChangePage('incr', 'video') }} className='py-2 px-5 bg-black text-white rounded-full font-semibold'>Next</button>
           </div>
         </section>
-
-        <section>
+        <hr className='mt-2' />
+        
+        <section id='Playlist' className='my-3'>
+        <h1 className='text-center my-5 text-lg font-bold'>Channel Playlists</h1>
+        {playlist.length === 0 && <h1 className='text-center text-xl'>No Plylists</h1>}
+        {playlist.length !== 0 && playlist[playlistpage].type === 'playlist_listing'?
+        <div>
+          <div className='flex flex-wrap justify-center my-5'>
+            {playlist[playlistpage].type === 'playlist_listing' ? playlist[playlistpage].data.map((elem, index) => {
+              return <PlaylistCard video={elem} key={index} cid={cid} />
+            }):''}
+          </div>
+          <div className='flex justify-evenly'>
+            <button onClick={() => { ChangePage('decr', 'playlist') }} className='py-2 px-5 bg-black text-white rounded-full font-semibold'>Previous</button>
+            <button onClick={() => { ChangePage('incr', 'playlist') }} className='py-2 px-5 bg-black text-white rounded-full font-semibold'>Next</button>
+          </div>
+          </div>
+       :  
+          <div className='flex flex-wrap justify-center my-5'>
+            {playlist.length !== 0 &&  playlist.map((elem, index) => {
+              return <PlaylistCard video={elem} key={index} cid={cid} />
+            })}
+          </div>
+           }
+          </section> 
+<hr />
+        <section id='Shorts' className='my-3'>
           <h1 className='text-center my-5 text-lg font-bold'>Shorts</h1>
           <div className='flex flex-wrap justify-center my-5'>
             {shorts.length !== 0 && shorts[0].data.map((elem, index) => {
-              return <ChannelVideos video={elem} key={index} cid={cid} />
+              return <ShortsCard video={elem} key={index} cid={cid} />
             })}
-            {shorts.length ===0 && <h1 className='text-center text-xl'>No Shorts Posted</h1>}
+            {shorts.length === 0 && <h1 className='text-center text-xl'>No Shorts Posted</h1>}
           </div>
         </section>
       </div>

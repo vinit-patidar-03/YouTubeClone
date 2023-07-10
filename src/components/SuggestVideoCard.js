@@ -9,24 +9,27 @@ const SuggestVideoCard = (props) => {
     Navigate(`/video/${video.videoId}/${video.channelId}`)
   }
 
-  const cropDescription = (text)=>
-  {
-      if(text.split(' ').length > 5)
-      {
-        let newText = text.split(' ').slice(0,5);
-           return  newText.join(' ');
-      }
-      else
-      {
-        return text;
-      }
-  }
+  // const cropDescription = (text)=>
+  // {
+  //     if(text.split(' ').length > 5)
+  //     {
+  //       let newText = text.split(' ').slice(0,5);
+  //          return  newText.join(' ');
+  //     }
+  //     else
+  //     {
+  //       return text;
+  //     }
+  // }
   return (
     <>
       <div className='suggestVideoCard'>
         <div className='flex mb-5 suggestCardBody'>
-          <div className='thumb'>
+          <div className='thumb relative'>
             <img src={video?.thumbnail[1]?.url} className='rounded-xl cursor-pointer suggestVideoThumbnail' onClick={Render} alt="logo" />
+            <div className='text-white text-center absolute right-2 bottom-2'>
+              <h5 className={`${video.lengthText === 'LIVE' ? 'bg-red-600' : 'bg-black'} px-1  rounded-[7px] text-xs`}>{video.isLive ? <p> • {video.lengthText}</p> : <p>{video.lengthText}</p>}</h5>
+            </div>
           </div>
           <div className='mx-3'>
             <h4 className='leading-3 mt-2 font-semibold text-[10px] suggestVideoTitle'>{video?.title}</h4>
