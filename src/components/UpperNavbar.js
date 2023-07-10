@@ -18,7 +18,6 @@ const UpperNavbar = () => {
     {
          if(search.length !== 0)
          {
-            console.log('enter');
               setSearchcategory(search);
               Navigate(`/searchResults/${search}`);
          } 
@@ -28,7 +27,6 @@ const UpperNavbar = () => {
     {
          if(event.key === 'Enter' && search.length !== 0)
          {
-            console.log('enter');
               setSearchcategory(search);
               Navigate(`/searchResults/${search}`);
          } 

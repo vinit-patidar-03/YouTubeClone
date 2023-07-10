@@ -113,7 +113,12 @@ html
 
 .ChannelDetailpageAvatar
 {
-    width: 120px;
+    width: 100px;
+}
+
+.BottomNavbar
+{
+    display: none;
 }
 /* Media quaries Responsive Design */
 
@@ -215,6 +220,11 @@ html
         display: none;
     }
 
+    .BottomNavbar
+    {
+        display: block;
+    }
+
     .playedVideo
     {
         width: 675px;
@@ -229,6 +239,11 @@ html
     .suggestVideoTitle1
     {
         font-size: 15px;
+    }
+
+    .shortDetails
+    {
+        bottom: 50px;
     }
 }
 
@@ -473,7 +488,12 @@ html
     }
 
     .navbarSearch {
-        width: 100px;
+        width: 150px;
+    }
+
+    .shortPlayer
+    {
+        width: 100vw;
     }
 
     .navbaruserDetails {

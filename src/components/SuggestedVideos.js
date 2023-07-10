@@ -17,7 +17,6 @@ const SuggestVideo = () => {
   { 
      fetchData(`related?id=${Id}`).then((res)=>
      {
-      console.log(res.data.data);
           setRelated(res.data.data);
      })
   }

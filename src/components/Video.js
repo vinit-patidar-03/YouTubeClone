@@ -10,7 +10,6 @@ const Video = () => {
     const { id, cid } = useParams();
     const Navigate = useNavigate();
     const [videodetail, setVideoDetail] = useState('');
-    console.log(id, cid);
 
     useEffect(() => {
         fetchDetails(id);
@@ -25,18 +24,15 @@ const Video = () => {
 
     const fetchDetails = (Id) => {
         fetchData(`video/info?id=${Id}`).then((res) => {
-            console.log(res);
             setVideoDetail(res.data);
         })
     }
 
     const fetchChannel = (Id) => {
         fetchData(`channel/home?id=${Id}`).then((res) => {
-            console.log(res);
             setChannel(res.data);
         })
     }
-    console.log(videodetail);
     return (
         <>
             {videodetail.length !== 0 && channel ?

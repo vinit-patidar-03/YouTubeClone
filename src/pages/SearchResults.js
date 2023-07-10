@@ -18,7 +18,6 @@ const SearchResults = () => {
     {
         fetchData(`search?query=${e}`).then((res)=>
         {
-            console.log(res.data.data)
             setSearResults(res.data.data);
         })
     }

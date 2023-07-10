@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import  Context  from './Context'
 import { fetchData } from '../API/YoutubeAPI'
 
 const AppContext = (props) => {
 
-     const [loading,setLoading] = useState(true);
+    const [loading,setLoading] = useState(true);
     const [selectCategory,setSelectedCategory] = useState('Bhajans');
     const [mainpageVideos,setMainPagevideos] = useState('');
     const [searchResult,setSearResults] = useState('');
@@ -17,16 +18,16 @@ const AppContext = (props) => {
         fetchDataforSelectedCategory(selectCategory);
     },[selectCategory])
 
-   const fetchDataforSelectedCategory = (query)=>
+   const fetchDataforSelectedCategory = ()=>
    {
     setLoading(true);
-       fetchData(`search?query=${query}`).then((res)=>
+       fetchData(`search?query=${selectCategory}`).then((res)=>
        {
-          console.log(res.data.data);
           setMainPagevideos(res.data.data);
           setLoading(false);
        })
    }
+
   return(
     <Context.Provider value = {{selectCategory,setSelectedCategory,mainpageVideos,setMainPagevideos,loading,setLoading,searchResult,setSearResults,searchcategory,setSearchcategory,channel,setChannel}}>{props.children}</Context.Provider>
   )

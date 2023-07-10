@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext} from 'react'
 import  Context  from '../context/Context'
 import VideoCard from './VideoCard';
 
 const MainPageVideos = () => {
     const context = useContext(Context);
     const {mainpageVideos,loading} = context;
+
 
   return (
     <>

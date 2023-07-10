@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { fetchData } from '../API/YoutubeAPI';
-import PlaylistVideoCard from './PlaylistVideoCard';
+import PlaylistVideoCard from '../components/PlaylistVideoCard';
 
 const PlaylistDetails = (props) => {
     const { pid } = useParams();
@@ -13,7 +14,6 @@ const PlaylistDetails = (props) => {
 
     const fetchPlaylistVideos = () => {
         fetchData(`playlist?id=${pid}`).then((res) => {
-            console.log(res.data);
             setChannelPlaylistsVideos(res.data);
         })
     }
@@ -40,12 +40,13 @@ const PlaylistDetails = (props) => {
                     </div>
                 }
             </div>
-            <hr className='my-3'/>
+
+            <hr className='my-3' />
+
             <div className='flex flex-wrap justify-center'>
                 {channelPlaylistsVideos &&
-                    channelPlaylistsVideos.data.map((elem,index)=>
-                    {
-                        return <PlaylistVideoCard video={elem} key={index}/>
+                    channelPlaylistsVideos.data.map((elem, index) => {
+                        return <PlaylistVideoCard video={elem} key={index} />
                     })
                 }
             </div>
