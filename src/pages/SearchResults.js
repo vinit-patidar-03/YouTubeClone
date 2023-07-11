@@ -5,41 +5,48 @@ import { useNavigate } from 'react-router-dom';
 import { fetchData } from '../API/YoutubeAPI';
 
 const SearchResults = () => {
-    const { searchcategory,searchResult,setSearResults} = useContext(Context);
+    const { searchcategory, searchResult, setSearchResults} = useContext(Context);
     const Navigate = useNavigate();
 
-    useEffect(()=>
-    {
-       fetchSearchResult(searchcategory)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[searchcategory])
+    useEffect(() => {
+        fetchSearchResult(searchcategory)
+        setsearchinlocalstrorage();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [searchcategory])
 
-    const fetchSearchResult = (e)=>
-    {
-        fetchData(`search?query=${e}`).then((res)=>
-        {
-            setSearResults(res.data.data);
+
+
+    const setsearchinlocalstrorage = () => {
+        localStorage.setItem('search text', searchcategory);
+    }
+
+    const fetchSearchResult = (e) => {
+        fetchData(`search?query=${e}`).then((res) => {
+            setSearchResults(res.data.data);
         })
     }
 
-    const watch = (e)=>
-    {
+    const watch = (e) => {
         Navigate(`video/${e}`)
     }
+
+    console.log(searchResult);
+
     return (
-        <>
+        <>{ 
             <div className='flex flex-col items-center w-[calc(100vw-83px)] top-[100px] p-3 left-[65px] relative searchresultpage'>
                 {
-                    searchResult.length!==0 &&
-                     searchResult.map((elem, index) => {
+                    searchResult.length !== 0 &&
+                    searchResult.map((elem, index) => {
                         if (elem.type !== 'video') {
                             return false;
                         }
-                        return  <SearchResultCard video={elem} onClick={()=>{watch(elem.videoId)}} key={index}/>
+                        return <SearchResultCard video={elem} onClick={() => { watch(elem.videoId) }} key={index} />
                     })
 
                 }
             </div>
+        }
         </>
     )
 }

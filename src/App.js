@@ -22,7 +22,7 @@ function App() {
      <>
        <AppContext>
              <UpperNavbar/>
-            {location.pathname === '/' || location.pathname ==='/shorts/:id' ?<LeftNavbar/>:''}
+            <LeftNavbar/>
             <Routes>
                 <Route exact path='/' element={<Home/>}/>
                 <Route path='searchResults/:query' element={<SearchResults/>} />

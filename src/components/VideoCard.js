@@ -6,15 +6,6 @@ const VideoCard = (props) => {
 
   const Navigate = useNavigate();
   const { video } = props;
-  // const cropDescription = (text) => {
-  //   if (text.split(' ').length > 10) {
-  //     let newText = text.split(' ').slice(0, 10);
-  //     return newText.join(' ');
-  //   }
-  //   else {
-  //     return text;
-  //   }
-  // }
 
   const Render = ()=>
   {

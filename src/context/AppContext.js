@@ -8,8 +8,8 @@ const AppContext = (props) => {
     const [loading,setLoading] = useState(true);
     const [selectCategory,setSelectedCategory] = useState('Bhajans');
     const [mainpageVideos,setMainPagevideos] = useState('');
-    const [searchResult,setSearResults] = useState('');
-    const [searchcategory,setSearchcategory] = useState('south Indian Movies');
+    const [searchResult,setSearchResults] = useState('');
+    const [searchcategory,setSearchcategory] = useState('GoldMines');
     const [channel,setChannel] = useState('');
 
     
@@ -29,7 +29,20 @@ const AppContext = (props) => {
    }
 
   return(
-    <Context.Provider value = {{selectCategory,setSelectedCategory,mainpageVideos,setMainPagevideos,loading,setLoading,searchResult,setSearResults,searchcategory,setSearchcategory,channel,setChannel}}>{props.children}</Context.Provider>
+    <Context.Provider value = {
+      {selectCategory,
+      setSelectedCategory,
+      mainpageVideos,
+      setMainPagevideos,
+      loading,
+      setLoading,
+      searchResult,
+      setSearchResults,
+      searchcategory,
+      setSearchcategory,
+      channel,
+      setChannel}
+      }>{props.children}</Context.Provider>
   )
 }
 

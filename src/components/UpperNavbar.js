@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const UpperNavbar = () => {
 
     const {setSearchcategory} = useContext(Context);
-    const [search,setSearch] = useState();
+    const [search,setSearch] = useState('');
     const Navigate = useNavigate();
     const location = useLocation()
     useEffect(()=>{},[location])
@@ -31,6 +31,8 @@ const UpperNavbar = () => {
               Navigate(`/searchResults/${search}`);
          } 
     }
+
+    console.log(search);
   return (
     <>
          <nav className='flex justify-center bg-white items-center h-[60px] w-full fixed top-0 z-10'>
@@ -44,7 +46,7 @@ const UpperNavbar = () => {
                     
                 <li className='flex items-center justify-center'>
                     <div className='flex justify-center items-center'>
-                         <input type="text" name='search' id='search' className='rounded-l-full cursor-text bg-slate-200 navbarSearch' placeholder='search' onKeyUp={searchEnter} onChange={setCategory}/>
+                         <input type="text" name='search' id='search' className='rounded-l-full cursor-text bg-slate-200 navbarSearch' placeholder='search' onKeyUp={searchEnter} onChange={setCategory} value={search}/>
                          <div id='serchButton' className='flex justify-center items-center bg-slate-300 rounded-r-full cursor-pointer navbarSearchIcon' onClick={searchResults}><i className="fa-solid fa-magnifying-glass fa-lg"></i></div>
                          <i className="fa-solid fa-microphone fa-lg cursor-pointer mx-3 hide" title='Speak to Search'></i>
                     </div>
