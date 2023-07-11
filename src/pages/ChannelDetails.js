@@ -30,8 +30,6 @@ const ChannelDetails = () => {
     })
   }
 
-  console.log(channel);
-
   const ChangePage = (event, type) => {
     if (event === 'incr' && videopage !== channel.data.filter((elem) => { return elem.type === 'video_listing' && elem.title.split(' ')[1] !== 'live' }).length - 1 && type === 'video') {
       setVideoPage(videopage + 1);

@@ -27,7 +27,6 @@ const UpperNavbar = () => {
           }
      }
 
-     console.log(search);
      return (
           <>
                <nav className={`flex justify-center ${theme === 'light' ? 'bg-white' : 'bg-black'} fixed top-0 items-center h-[60px] w-full z-10`}>
@@ -35,7 +34,7 @@ const UpperNavbar = () => {
                          <li className='flex items-center justify-center'>
                               <div className=' flex justify-center items-center mx-3'>
                                    {/* {location.pathname === '/' && <i className="fa-solid fa-bars fa-lg ml-3 mr-5 cursor-pointer hide"></i>} */}
-                                   <img src="/images/Youtube.png" className='w-[75px] cursor-pointer' onClick={() => { Navigate('/') }} alt="Youtube" />
+                                   <img src="/images/youtube.png" className='w-[75px] cursor-pointer' onClick={() => { Navigate('/') }} alt="Youtube" />
                               </div>
                          </li>
 
