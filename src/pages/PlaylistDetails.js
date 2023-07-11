@@ -1,12 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { fetchData } from '../API/YoutubeAPI';
 import PlaylistVideoCard from '../components/PlaylistVideoCard';
+import Context from '../context/Context';
 
 const PlaylistDetails = (props) => {
     const { pid } = useParams();
-
+     const {theme} = useContext(Context);
     const [channelPlaylistsVideos, setChannelPlaylistsVideos] = useState();
     useEffect(() => {
         fetchPlaylistVideos();
@@ -18,10 +19,10 @@ const PlaylistDetails = (props) => {
         })
     }
     return (
-        <><div>
+        <><div className='mb-[50px]'>
             <div className='flex justify-center'>
                 {channelPlaylistsVideos &&
-                    <div className='mt-[80px] rounded-xl w-96 bg-slate-300 p-5'>
+                    <div className={`mt-[80px] rounded-xl w-96 p-5 text-${theme ==='light'?'black':'white'}`} style={{backgroundColor:`${theme === 'light'?'#E5E5CB':'#E9E8E8'}`}}>
                         <div className='w-full relative'>
                             <img src={channelPlaylistsVideos.meta.thumbnail[3].url || channelPlaylistsVideos.meta.thumbnail[0].url} className='w-full' alt="thumbnail" />
                             <div className='text-white text-center absolute right-2 bottom-2'>

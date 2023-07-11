@@ -1,12 +1,12 @@
 import axios from "axios";
 const  BaseUrl = 'https://yt-api.p.rapidapi.com'
-// const apikey1 = process.env.REACT_APP_APIKEY1;
+const apikey1 = process.env.REACT_APP_APIKEY1;
 // const apikey2 = process.env.REACT_APP_APIKEY2;
-const apikey3 = process.env.REACT_APP_APIKEY3;
+// const apikey3 = process.env.REACT_APP_APIKEY3;
 const options = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key':  apikey3,
+    'X-RapidAPI-Key':  apikey1,
     'X-RapidAPI-Host': 'yt-api.p.rapidapi.com'
   }
 };

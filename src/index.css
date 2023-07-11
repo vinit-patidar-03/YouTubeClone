@@ -59,7 +59,7 @@ html
 }
 
 .suggestVideopage {
-    height: 85vh;
+    height: 615px;
     position: relative;
     left: 20px;
     overflow-y: scroll;
@@ -87,7 +87,7 @@ html
 
 .Video
 {
-    margin: 0px 10px;
+    margin: 0px 10px 50px 10px;
 }
 
 .playedVideo
@@ -116,21 +116,22 @@ html
     width: 100px;
 }
 
-.BottomNavbar
+/* .BottomNavbar
 {
     display: none;
-}
+} */
 /* Media quaries Responsive Design */
 
 @media (max-width:1220px) {
     .videoDetailpage {
+        margin: 20px 0px 50px 0px;
         width: 100vw;
         flex-direction: column;
         align-items: center;
     }
 
     .suggestVideopage {
-        margin: 20px 0px;
+        margin: 20px 0px 50px 0px;
         height: auto;
         position: relative;
         left: 0px;
@@ -220,10 +221,10 @@ html
         display: none;
     }
 
-    .BottomNavbar
+    /* .BottomNavbar
     {
         display: block;
-    }
+    } */
 
     .playedVideo
     {
@@ -246,15 +247,10 @@ html
         bottom: 50px;
     }
 
-    .searchresultpage
+    /* .suggestVideopage
     {
         margin-bottom: 120px;
-    }
-
-    .suggestVideopage
-    {
-        margin-bottom: 120px;
-    }
+    } */
 }
 
 @media (max-width:700px) {

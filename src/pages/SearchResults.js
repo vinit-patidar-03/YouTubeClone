@@ -34,7 +34,7 @@ const SearchResults = () => {
 
     return (
         <>{ 
-            <div className='flex flex-col items-center w-[calc(100vw-83px)] top-[100px] p-3 left-[65px] relative searchresultpage'>
+            <div className='flex flex-col items-center w-[calc(100vw-83px)] top-[100px] p-3 left-[65px] relative searchresultpage mb-[120px]'>
                 {
                     searchResult.length !== 0 &&
                     searchResult.map((elem, index) => {

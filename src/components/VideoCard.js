@@ -1,11 +1,14 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { useNavigate } from 'react-router-dom';
+import Context from '../context/Context';
+
 // import { Link } from 'react-router-dom';
 
 const VideoCard = (props) => {
 
   const Navigate = useNavigate();
   const { video } = props;
+  const {theme} = useContext(Context);
 
   const Render = ()=>
   {
@@ -27,7 +30,7 @@ const VideoCard = (props) => {
           <h5 className={`${video.lengthText === 'LIVE'? 'bg-red-600':'bg-black'} px-1  rounded-[7px] text-xs`}>{video.isLive ? <p> • {video.lengthText}</p>:<p>{video.lengthText}</p>}</h5>
         </div>
           </div>
-          <div className='flex px-3 my-2'>
+          <div className={`flex px-3 my-2 text-${theme === 'light'?'black':'white'}`}>
             <img src={video.channelThumbnail[0].url} className='rounded-full self-start mainpage-channelThumbnail' alt="" />
             <div className='mx-3'>
               <h4 className='leading-5 font-bold text-xs mainpage-title'>{video?.title}</h4>

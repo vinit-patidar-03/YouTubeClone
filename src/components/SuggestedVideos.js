@@ -20,9 +20,11 @@ const SuggestVideo = () => {
           setRelated(res.data.data);
      })
   }
+
+  console.log(related);
   return (
     <>
-        <div className='suggestVideopage scroll-track'>
+        <div className='suggestVideopage scroll-track mt-0'>
             {
                 related.length !==0 && related.map((elem,index)=>
                 {

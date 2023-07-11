@@ -11,17 +11,32 @@ const AppContext = (props) => {
     const [searchResult,setSearchResults] = useState('');
     const [searchcategory,setSearchcategory] = useState('GoldMines');
     const [channel,setChannel] = useState('');
+    const [theme,setTheme] = useState('light');
+
+    
 
     
     useEffect(()=>
     {
         fetchDataforSelectedCategory(selectCategory);
-    },[selectCategory])
+        themeChanger(theme);
+    },[selectCategory,theme])
 
+    const themeChanger = (color)=>
+    {
+      if(theme === 'light')
+      {
+         document.body.style.backgroundColor = 'white';
+      }
+      else
+      {
+        document.body.style.backgroundColor = 'black';
+      }
+    }
    const fetchDataforSelectedCategory = ()=>
    {
     setLoading(true);
-       fetchData(`search?query=${selectCategory}`).then((res)=>
+       fetchData(`search?query=${selectCategory}&geo=IN`).then((res)=>
        {
           setMainPagevideos(res.data.data);
           setLoading(false);
@@ -41,7 +56,9 @@ const AppContext = (props) => {
       searchcategory,
       setSearchcategory,
       channel,
-      setChannel}
+      setChannel,
+      theme,
+      setTheme}
       }>{props.children}</Context.Provider>
   )
 }

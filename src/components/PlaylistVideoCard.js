@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
+import Context from '../context/Context';
 const PlaylistVideoCard = (props) => {
     const { video } = props;
     const Navigate = useNavigate();
+    const {theme} = useContext(Context);
   const Render = () =>
   {
     Navigate(`/video/${video.videoId}/${video.channelId}`)
   }
     return (
         <>
-            <div className='flex flex-col w-[330px] m-3'>
+            <div className={`flex flex-col w-[330px] m-3 text-${theme === 'light' ? 'black' : 'white'}`}>
                 <div className='w-full relative'>
                     <img src={video?.thumbnail[2]?.url || video?.thumbnail[0]?.url} onClick={Render} className='w-full rounded-xl object-cover mainpage-thumbnail cursor-pointer' alt="logo" />
                     <div className='text-white text-center absolute right-2 bottom-2'>
