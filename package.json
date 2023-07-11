@@ -1,5 +1,4 @@
 {
-  "homepage": "https://github.com/Vinit-patidar-03/YoutubeClone.git",
   "name": "youtube2.o",
   "version": "0.1.0",
   "private": true,
@@ -17,8 +16,6 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
