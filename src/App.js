@@ -2,7 +2,6 @@ import './App.css';
 import Home from './pages/Home';
 import AppContext from './context/AppContext';
 import UpperNavbar from './components/UpperNavbar';
-import LeftNavbar from './components/LeftNavbar';
 import SearchResults from './pages/SearchResults'
 import {Routes,Route} from 'react-router-dom'
 import VideoDetails from './pages/VideoDetails';
@@ -22,7 +21,6 @@ function App() {
      <>
        <AppContext>
              <UpperNavbar/>
-            {/* <LeftNavbar/> */}
             <Routes>
                 <Route exact path='/' element={<Home/>}/>
                 <Route path='searchResults/:query' element={<SearchResults/>} />
