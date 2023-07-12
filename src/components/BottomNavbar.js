@@ -14,17 +14,14 @@ const BottomNavbar = () => {
 
             <li className='flex flex-col justify-center cursor-pointer' onClick={() => { Navigate('/') }} title='Home'>
               <i className="fa-solid fa-house fa-lg my-2 "></i>
-              {/* <h6 className=' text-[0.5rem]'>Home</h6> */}
             </li>
 
             <li className='flex flex-col justify-center cursor-pointer' onClick={() => { Navigate('shorts/:id') }} title='Shorts'>
               <i className="fa-solid fa-play fa-lg my-2"></i>
-              {/* <h6 className=' text-[0.5rem]'>Shorts</h6> */}
             </li>
 
             <li className='flex flex-col justify-center cursor-pointer' onClick={() => { Navigate('trending') }} title='Shorts'>
               <i className="fa-solid fa-fire fa-lg my-2"></i>
-              {/* <h6 className=' text-[0.5rem]'>Shorts</h6> */}
             </li>
 
             <li className="flex items-center cursor-pointer" onClick={()=>{theme === 'light'?setTheme('dark'):setTheme('light')}}>

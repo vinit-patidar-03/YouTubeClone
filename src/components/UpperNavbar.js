@@ -33,7 +33,6 @@ const UpperNavbar = () => {
                     <ul className=' w-full flex justify-between'>
                          <li className='flex items-center justify-center'>
                               <div className=' flex justify-center items-center mx-3'>
-                                   {/* {location.pathname === '/' && <i className="fa-solid fa-bars fa-lg ml-3 mr-5 cursor-pointer hide"></i>} */}
                                    <img src="/images/youtube.png" className='w-[75px] cursor-pointer' onClick={() => { Navigate('/') }} alt="Youtube" />
                               </div>
                          </li>

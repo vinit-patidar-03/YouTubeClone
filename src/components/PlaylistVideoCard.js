@@ -19,7 +19,6 @@ const PlaylistVideoCard = (props) => {
                     </div>
                 </div>
                 <div className='flex px-3 my-2'>
-                    {/* <img src={video.channelThumbnail[0].url} className='rounded-full self-start mainpage-channelThumbnail' alt="" /> */}
                     <div className='mx-3'>
                         <h4 className='leading-5 font-bold text-xs mainpage-title'>{video?.title}</h4>
                         <div className='my-1 text-gray-00'>

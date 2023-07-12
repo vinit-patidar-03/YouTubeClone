@@ -18,9 +18,6 @@ const PlaylistCard = (props) => {
         </div>
         <div className='mt-1 mb-5 text-gray-00 ChannelVideosText'>
           <h4 className='leading-5 font-bold text-xs md:text-sm'>{video?.title}</h4>
-          {/* <div className='mt-1'>
-            {video.isLive ? <img src='/images/live.png' className='w-4' alt='live' /> : <h4 className='mainpage-channelTitle sm:text-xs'>{video.viewCount} • {video.publishedTimeText} </h4>}
-          </div> */}
         </div>
       </div>
     </>
