@@ -11,6 +11,7 @@ import ChannelDetails from './pages/ChannelDetails';
 import ShortVideos from './pages/ShortVideos'
 import PlaylistDetails from './pages/PlaylistDetails'
 import BottomNavbar from './components/BottomNavbar';
+import Trending from './pages/Trending';
 
 function App() {
   const location = useLocation();
@@ -28,6 +29,7 @@ function App() {
                 <Route path='channelDetails/:cid' element={<ChannelDetails />}/>
                 <Route path='shorts/:id' element={<ShortVideos/>} />
                 <Route path='playlist/:pid' element={ <PlaylistDetails/>} />
+                <Route path='trending' element={<Trending />} />
             </Routes>
             <BottomNavbar />
        </AppContext> 

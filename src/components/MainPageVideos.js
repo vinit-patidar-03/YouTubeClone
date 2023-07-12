@@ -9,7 +9,7 @@ const MainPageVideos = () => {
 
   return (
     <>
-        <div className='flex flex-wrap justify-center relative'>
+        <div className='flex flex-wrap justify-center relative mb-[50px]'>
                {
                  !loading &&
                   mainpageVideos.map((elem,index)=>

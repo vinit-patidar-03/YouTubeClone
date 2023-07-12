@@ -17,13 +17,18 @@ const BottomNavbar = () => {
               {/* <h6 className=' text-[0.5rem]'>Home</h6> */}
             </li>
 
-            <li className="flex items-center cursor-pointer" onClick={()=>{theme === 'light'?setTheme('dark'):setTheme('light')}}>
-              <i className="fa-solid fa-sun fa-lg" title='Theme'></i>
-            </li>
-
             <li className='flex flex-col justify-center cursor-pointer' onClick={() => { Navigate('shorts/:id') }} title='Shorts'>
               <i className="fa-solid fa-play fa-lg my-2"></i>
               {/* <h6 className=' text-[0.5rem]'>Shorts</h6> */}
+            </li>
+
+            <li className='flex flex-col justify-center cursor-pointer' onClick={() => { Navigate('trending') }} title='Shorts'>
+              <i className="fa-solid fa-fire fa-lg my-2"></i>
+              {/* <h6 className=' text-[0.5rem]'>Shorts</h6> */}
+            </li>
+
+            <li className="flex items-center cursor-pointer" onClick={()=>{theme === 'light'?setTheme('dark'):setTheme('light')}}>
+              <i className="fa-solid fa-sun fa-lg" title='Theme'></i>
             </li>
 
           </ul>

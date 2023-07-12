@@ -61,7 +61,7 @@ const ChannelDetails = () => {
     <>{channel &&
       <div className={`mb-[50px] text-${theme === 'light' ? 'black' : 'white'}`}>
         <div className='mt-[60px]'>
-          {channel.meta.banner && <img src={channel.meta.banner[0].url} className='w-full' alt="banner" />}
+          {channel.meta.banner && <img src={channel.meta.banner[1].url} className='w-full' alt="banner" />}
         </div>
 
         <div className='flex my-2 ml-5'>

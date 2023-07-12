@@ -44,8 +44,8 @@ const ShortVideos = () => {
     return (
         <>
             {mainpageVideos && mainpageVideos.filter((elem) => {return elem.type === 'shorts_listing'}).length !== 0 && id === ':id'?
-                <div className='flex justify-center items-center relative mt-[60px]'>
-                    <div className='relative flex justify-center items-center p-3 bg-slate-300 rounded-xl h-[calc(100vh-120px)] w-[calc(0.5625*(100vh-120px))]'>
+                <div className='flex justify-center items-center h-[100vh] relative'>
+                    <div className='relative flex justify-center items-center p-3 bg-slate-300 rounded-xl h-[calc(100vh-160px)] w-[calc(0.5625*(100vh-140px))]'>
                         <div className=' w-full h-full shortPlayer'>
                             <ReactPlayer url={`https://www.youtube.com/watch?v=${mainpageVideos.filter((elem) => {return elem.type === 'shorts_listing'})[0].data[shortNo].videoId}`} playing={true} loop={true} width='100%' height='100%'/>
                         </div>
@@ -63,7 +63,7 @@ const ShortVideos = () => {
                     </div>
                     </div>
                 </div>:
-                <div className='flex justify-center items-center relative mt-[60px]'>
+                <div className='flex justify-center items-center relative h-[100vh]'>
                     <div className='relative flex justify-center items-center'>
                         <div className='h-[calc(100vh-120px)] w-[calc(0.5625*(100vh-120px))]'>
                             <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} playing={true} loop={true} width='100%' height='100%'/>
