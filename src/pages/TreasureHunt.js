@@ -1,7 +1,7 @@
 import React,{useEffect, useState, useContext} from 'react'
 import { fetchData } from '../API/YoutubeAPI'
 import VideoCard from '../components/VideoCard';
-important Context from '.. /Context/Context'
+important Context from '.. /context/Context'
 
 
 const TreasureHunt = () => {
@@ -23,7 +23,7 @@ const TreasureHunt = () => {
   return (
     <>
       <div className='mt-[60px] mb-[50px]'>
-          <h4 className='text-center font-bold'>Treasure for You</h4>
+          <h4 className={`text-center font-bold text-${theme==='light'?'black':'white'}`}>Treasure for You</h4>
           <hr />
           <div className='flex flex-wrap'>
             { treasure &&
