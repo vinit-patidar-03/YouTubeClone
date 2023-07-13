@@ -197,7 +197,7 @@ const ChannelDetails = () => {
             </div>
           </div>
         </section>
-        <div className='fixed right-[10px] bottom-[50px] cursor-pointer flex justify-center items-center rounded-full w-10 h-10 bg-slate-400' onClick={moveTotop}>
+        <div className={`fixed right-[10px] bottom-[50px] cursor-pointer flex justify-center items-center rounded-full w-10 h-10 bg-${theme === 'light' ? 'white' : 'black'}`} onClick={moveTotop}>
           <i class="fa-solid fa-arrow-up fa-xl"></i>
         </div>
       </div>
