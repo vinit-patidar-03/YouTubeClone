@@ -16,6 +16,18 @@ html
     scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar
+{
+    width: 1rem;
+}
+
+::-webkit-scrollbar-thumb
+{   background: linear-gradient(red,orange,yellow,orangered);
+    border-radius: 0.5rem;
+    border: 0.3rem solid transparent;
+    background-clip: content-box;
+}
+
 .scroll-track::-webkit-scrollbar {
     display: none;
 }
