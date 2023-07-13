@@ -38,8 +38,6 @@ const Trending = () => {
 
     }
 
-    console.log(trendingvideos);
-
     return (
         <>
             <div className='mt-[60px] mb-[50px]'>

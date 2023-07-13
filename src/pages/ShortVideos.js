@@ -35,8 +35,6 @@ const ShortVideos = () =>{
         }
         }
 
-        console.log(shorts);
-
         const changeShortPage = (e) => {
             if (e === 'incr' && shortNo !==   shorts.length - 1) {
                 setShortNo(shortNo + 1);

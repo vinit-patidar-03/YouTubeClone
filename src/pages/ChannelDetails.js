@@ -69,7 +69,6 @@ const ChannelDetails = () => {
     })
   }
 
-  console.log(channel);
 
   return (
     <>{channel &&
