@@ -24,6 +24,10 @@ const BottomNavbar = () => {
               <i className="fa-solid fa-fire fa-lg my-2"></i>
             </li>
 
+            <li className='flex flex-col justify-center cursor-pointer' onClick={() => { Navigate('treasure') }} title='Shorts'>
+              <i className="fa-solid fa-gem fa-lg my-2"></i>
+            </li>
+            
             <li className="flex items-center cursor-pointer" onClick={()=>{theme === 'light'?setTheme('dark'):setTheme('light')}}>
               <i className="fa-solid fa-sun fa-lg" title='Theme'></i>
             </li>

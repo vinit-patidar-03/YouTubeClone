@@ -12,6 +12,7 @@ import ShortVideos from './pages/ShortVideos'
 import PlaylistDetails from './pages/PlaylistDetails'
 import BottomNavbar from './components/BottomNavbar';
 import Trending from './pages/Trending';
+import TreasureHunt from './pages/TreasureHunt';
 
 function App() {
   const location = useLocation();
@@ -19,7 +20,7 @@ function App() {
   useEffect(()=>{},[location])
 
   return (
-     <>
+     <> 
        <AppContext>
              <UpperNavbar/>
             <Routes>
@@ -30,6 +31,7 @@ function App() {
                 <Route path='shorts/:id' element={<ShortVideos/>} />
                 <Route path='playlist/:pid' element={ <PlaylistDetails/>} />
                 <Route path='trending' element={<Trending />} />
+                <Route path='treasure' element={<TreasureHunt/>} />
             </Routes>
             <BottomNavbar />
        </AppContext> 

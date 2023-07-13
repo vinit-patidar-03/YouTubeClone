@@ -7,6 +7,7 @@ import ShortsCard from '../components/ShortsCard';
 import { fetchData } from '../API/YoutubeAPI';
 import PlaylistCard from '../components/PlaylistCard';
 import Channels from '../components/Channels';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const ChannelDetails = () => {
 
@@ -20,6 +21,7 @@ const ChannelDetails = () => {
 
   useEffect(() => {
     fetchChannel(cid);
+    moveTotop();
     fetchMoreChannelVideos(cid);
     fetchMoreChannelplaylists(cid);
   }, [cid])
@@ -27,6 +29,13 @@ const ChannelDetails = () => {
   const fetchChannel = (id) => {
     fetchData(`channel/home?id=${id}`).then((res) => {
       setChannel(res.data);
+    })
+  }
+
+  const moveTotop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     })
   }
 
@@ -57,16 +66,18 @@ const ChannelDetails = () => {
     })
   }
 
+  console.log(channel);
+
   return (
     <>{channel &&
-      <div className={`mb-[50px] text-${theme === 'light' ? 'black' : 'white'}`}>
+      <div className={`mb-[50px] text-${theme === 'light' ? 'black' : 'white'}`} id='top'>
         <div className='mt-[60px]'>
           {channel.meta.banner && <img src={channel.meta.banner[1].url} className='w-full' alt="banner" />}
         </div>
 
         <div className='flex my-2 ml-5'>
           <div className='flex'>
-            <img src={channel.meta.avatar[1].url} className='rounded-full ChannelDetailpageAvatar' alt="avatar" />
+            <img src={channel.meta.avatar[0].url} className='rounded-full ChannelDetailpageAvatar' alt="avatar" />
           </div>
           <div className='ml-5 mt-3'>
             <div className='flex items-center'>
@@ -86,17 +97,17 @@ const ChannelDetails = () => {
 
         <div className='mb-3'>
           <ul className='flex justify-evenly'>
-            <li className='cursor-pointer font-semibold'><a href="#Live">Live</a></li>
-            <li className='cursor-pointer font-semibold'><a href="#Videos">Videos</a></li>
-            <li className='cursor-pointer font-semibold'><a href="#Playlist">Playlists</a></li>
-            <li className='cursor-pointer font-semibold'><a href="#Shorts">Shorts</a></li>
-            <li className='cursor-pointer font-semibold'><a href="#Channels">Channels</a></li>
+            <li className='cursor-pointer font-semibold'><AnchorLink href="#Live">Live</AnchorLink></li>
+            <li className='cursor-pointer font-semibold'><AnchorLink href="#Videos">Videos</AnchorLink></li>
+            <li className='cursor-pointer font-semibold'><AnchorLink href="#Playlist">Playlists</AnchorLink></li>
+            <li className='cursor-pointer font-semibold'><AnchorLink href="#Shorts">Shorts</AnchorLink></li>
+            <li className='cursor-pointer font-semibold'><AnchorLink href="#Channels">Channels</AnchorLink></li>
           </ul>
         </div>
 
         <hr />
 
-        <section id='Live' className='my-3'>
+        <section id='Live' className='py-[60px]'>
           <h1 className='text-center my-5 text-lg font-bold'>Live</h1>
           <div className='flex flex-wrap justify-center my-5'>
             {channel.data.filter((elem) => { return elem.type === 'video_listing' && elem.title.split(' ')[1] === 'live'; }).length !== 0 && channel.data.filter((elem) => { return elem.type === 'video_listing' && elem.title.split(' ')[1] === 'live'; })[0].data.map((elem, index) => {
@@ -108,8 +119,8 @@ const ChannelDetails = () => {
 
         <hr />
 
-        <section id='Videos' className='my-3'>
-          <h1 className='text-center my-5 text-lg font-bold'>Videos</h1>
+        <section id='Videos' className='py-[60px]'>
+          <h1 className='text-center mb-5 text-lg font-bold'>Videos</h1>
           <div className='flex flex-wrap justify-center my-5'>
             {channelVideos.length !== 0 && channelVideos.map((elem, index) => {
               return <ChannelVideos video={elem} key={index} cid={cid} />
@@ -117,7 +128,7 @@ const ChannelDetails = () => {
             {channelVideos.length === 0 && <h1 className='text-center text-xl'>No Videos</h1>}
           </div>
           <hr />
-          <h1 className='text-center my-5 text-lg font-bold'>Channel & Other Channel Videos</h1>
+          <h1 className='text-center mb-5 text-lg font-bold'>Channel & Other Channel Videos</h1>
           <div className='flex flex-wrap justify-center my-5'>
             {channel.data.filter((elem) => { return elem.type === 'video_listing' && elem.title.split(' ')[1] !== 'live' }).length !== 0 && channel.data.filter((elem) => { return elem.type === 'video_listing' && elem.title.split(' ')[1] !== 'live' })[videopage].data.map((elem, index) => {
               return <ChannelVideos video={elem} key={index} cid={cid} />
@@ -132,8 +143,8 @@ const ChannelDetails = () => {
 
         <hr className='mt-2' />
 
-        <section id='Playlist' className='my-3'>
-          <h1 className='text-center my-5 text-lg font-bold'>Channel Playlists</h1>
+        <section id='Playlist' className='py-[60px]'>
+          <h1 className='text-center mb-5 text-lg font-bold'>Channel Playlists</h1>
           {playlist.length === 0 && <h1 className='text-center text-xl'>No Plylists</h1>}
           {playlist.length !== 0 && playlist[playlistpage].type === 'playlist_listing' ?
             <div>
@@ -159,8 +170,8 @@ const ChannelDetails = () => {
 
         <hr />
 
-        <section id='Shorts' className='my-3'>
-          <h1 className='text-center my-5 text-lg font-bold'>Shorts</h1>
+        <section id='Shorts' className='py-[60px]'>
+          <h1 className='text-center mb-5 text-lg font-bold'>Shorts</h1>
           <div className='flex flex-wrap justify-center my-5'>
             {channel.data.filter((elem) => { return elem.type === 'shorts_listing' }).length !== 0 && channel.data.filter((elem) => { return elem.type === 'shorts_listing' })[0].data.map((elem, index) => {
               return <ShortsCard video={elem} key={index} cid={cid} />
@@ -172,7 +183,7 @@ const ChannelDetails = () => {
         <hr />
 
         <section id='Channels'>
-          <h1 className='text-center my-5 text-lg font-bold'>Channels</h1>
+          <h1 className='text-center mb-5 text-lg font-bold'>Channels</h1>
           <div>
             <div className='flex justify-center flex-wrap'>{
               channel.data.filter((elem) => { return elem.type === 'channel_listing' }).length !== 0 && channel.data.filter((elem) => { return elem.type === 'channel_listing' })[0].data.map((elem, index) => {
@@ -186,6 +197,9 @@ const ChannelDetails = () => {
             </div>
           </div>
         </section>
+        <div className='fixed right-[10px] bottom-[50px] cursor-pointer flex justify-center items-center rounded-full w-10 h-10 bg-slate-400' onClick={moveTotop}>
+          <i class="fa-solid fa-arrow-up fa-xl"></i>
+        </div>
       </div>
     }
     </>
