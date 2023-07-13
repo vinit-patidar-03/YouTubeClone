@@ -387,7 +387,7 @@ html
     .Video
     {
         width: 100vw;
-        margin: 0px;
+        margin: 0;
     }
 
     .videoChannelDetail,.videoTitle
@@ -512,6 +512,12 @@ html
     .shortPlayer
     {
         width: 100vw;
+    }
+
+    
+    .suggestVideopage
+    {
+        margin-top: calc(33vh + 40px) ;
     }
 
     /* .navbaruserDetails {

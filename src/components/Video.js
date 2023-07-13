@@ -63,7 +63,7 @@ const Video = () => {
     return (
         <>
             {videodetail.length !== 0 && channel ?
-                <div className={`flex flex-col relative Video text-${theme === 'light' ? 'black' : 'white'}`}>
+                <div className={`flex flex-col relative Video bg-${theme === 'light' ? 'white' : 'black'} text-${theme === 'light' ? 'black' : 'white'}`}>
                     <div className='playedVideo'>
                         <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} playing={true} width='100%' height='100%' controls />
                     </div>
