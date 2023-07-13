@@ -21,9 +21,6 @@ const SuggestVideo = () => {
      })
   }
 
-  console.log(related);
-
-  console.log(related);
   return (
     <>
         <div className='suggestVideopage scroll-track mt-0'>

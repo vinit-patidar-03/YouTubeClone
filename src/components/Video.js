@@ -27,7 +27,6 @@ const Video = () => {
         })
     }
 
-    console.log(videodetail)
 
     const fetchChannel = (Id) => {
         fetchData(`channel/home?id=${Id}`).then((res) => {
