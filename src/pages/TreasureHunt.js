@@ -1,9 +1,11 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useState, useContext} from 'react'
 import { fetchData } from '../API/YoutubeAPI'
 import VideoCard from '../components/VideoCard';
+important Context from '.. /Context/Context'
+
 
 const TreasureHunt = () => {
-
+    const {theme} = useContext(Context);
     const [treasure,setTreasure] = useState('');
 
     useEffect(()=>
