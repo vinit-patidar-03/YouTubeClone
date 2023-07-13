@@ -32,7 +32,7 @@ const UpperNavbar = () => {
 
      return (
           <>
-               <nav className={`flex justify-center ${theme === 'light' ? 'bg-white' : 'bg-black'} fixed top-0 items-center h-[60px] w-full z-10`}>
+               <nav className={`flex justify-center ${theme === 'light' ? 'bg-white' : 'bg-black'} fixed ${theme === 'light' ? 'text-black' : 'text-white'} top-0 items-center h-[60px] w-full z-10`}>
                     <ul className=' w-full flex justify-between'>
                          <li className='flex items-center justify-center'>
                               <div className=' flex justify-center items-center mx-3'>
@@ -48,11 +48,11 @@ const UpperNavbar = () => {
                               </div>
                          </li>
 
-                         <li className='flex items-center justify-center mx-3 navbaruserDetails'>
+                         <li className='flex items-center justify-center mx-3'>
                               <div className='flex justify-center items-center'>
                                    <i className="fa-solid fa-circle-plus fa-lg mx-2 cursor-pointer hide" title='Create'></i>
                                    <i className="fa-solid fa-bell fa-lg mx-2 cursor-pointer hide" title='Notifications'></i>
-                                   <div className='w-8 h-8 bg-slate-300 rounded-full flex justify-center items-center mx-3 cursor-pointer' title='Account'><i className="fa-solid fa-user fa-lg"></i></div>
+                                   <div className='w-8 h-8 rounded-full flex justify-center items-center mx-3 cursor-pointer' title='Account'><img src="/images/user.png" alt="user" /></div>
                               </div>
                          </li>
                     </ul>
