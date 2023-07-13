@@ -13,6 +13,7 @@ const AppContext = (props) => {
     const [channel,setChannel] = useState('');
     const [shortscategory,setShortsCategory] = useState('Bhajans');
     const [theme,setTheme] = useState('light');
+    const [cid,setCid] = useState(':cid')
 
     
 
@@ -62,8 +63,9 @@ const AppContext = (props) => {
       theme,
       setTheme,
       shortscategory,
-      setShortsCategory}
-      }>{props.children}</Context.Provider>
+      setShortsCategory,
+      cid,setCid}
+       }>{props.children}</Context.Provider>
   )
 }
 

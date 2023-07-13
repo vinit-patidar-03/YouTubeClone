@@ -3,10 +3,10 @@ import React, { useContext, useEffect, useState } from 'react'
 import Context from '../context/Context'
 import ChannelVideos from '../components/ChannelVideos';
 import { useParams } from 'react-router-dom';
-import ShortsCard from '../components/ShortsCard';
 import { fetchData } from '../API/YoutubeAPI';
 import PlaylistCard from '../components/PlaylistCard';
 import Channels from '../components/Channels';
+import ShortsCard from '../components/ShortsCard';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const ChannelDetails = () => {
@@ -16,15 +16,18 @@ const ChannelDetails = () => {
   const [videopage, setVideoPage] = useState(0);
   const [playlistpage, setPlaylistPage] = useState(0);
   const [channelVideos, setChannelVideos] = useState('')
-  const { channel, setChannel, theme} = useContext(Context);
+  const { channel, setChannel, theme,setShortsCategory,setCid} = useContext(Context);
 
 
   useEffect(() => {
     fetchChannel(cid);
     moveTotop();
+    setCid(cid);
+    setShortsCategory(cid);
     fetchMoreChannelVideos(cid);
     fetchMoreChannelplaylists(cid);
   }, [cid])
+
 
   const fetchChannel = (id) => {
     fetchData(`channel/home?id=${id}`).then((res) => {

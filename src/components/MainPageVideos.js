@@ -1,11 +1,14 @@
-import React, { useContext} from 'react'
+import React, { useContext, useEffect} from 'react'
 import  Context  from '../context/Context'
 import VideoCard from './VideoCard';
 
 const MainPageVideos = () => {
     const context = useContext(Context);
-    const {mainpageVideos,loading} = context;
-
+    const {mainpageVideos,loading,setShortsCategory,selectCategory} = context;
+    useEffect(()=>
+    {
+        setShortsCategory(selectCategory)
+    })
 
   return (
     <>

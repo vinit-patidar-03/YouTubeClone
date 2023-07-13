@@ -57,7 +57,7 @@ const SuggestVideoCard = (props) => {
               <h5>{video?.channelTitle} </h5>
               <img src="/images/verify.png" className='self-center mx-2 w-3' alt="verify" />
               </div>
-              {video.isLive ? <h6 className='flex items-center text-xs my-2'><img src="/images/live.png" width='20px' className='mr-2' alt="live" /></h6> : <h6 className='text-gray-600 text-[10px] my-1 suggestVideoCount'>{video?.viewCount} views • {video?.publishedTimeText}</h6>}
+              {video.isLive ? <h6 className='flex items-center text-xs my-2'><img src="/images/live.png" width='20px' className='mr-2' alt="live" /></h6> : <h6 className='text-gray-600 text-[10px] my-1 suggestVideoCount'>{ViewConverter(video?.viewCount)} views • {video?.publishedTimeText}</h6>}
             </div>
             <div className='suggestvideoDetail1'>
               <div className='flex items-center my-3 text-xs searchResultChannelTitle'>

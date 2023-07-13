@@ -22,10 +22,12 @@ const Video = () => {
 
 
     const fetchDetails = (Id) => {
-        fetchData(`video/info?id=${Id}`).then((res) => {
+        fetchData(`video/info?id=${Id}&extend=2`).then((res) => {
             setVideoDetail(res.data);
         })
     }
+
+    console.log(videodetail)
 
     const fetchChannel = (Id) => {
         fetchData(`channel/home?id=${Id}`).then((res) => {
@@ -33,31 +35,25 @@ const Video = () => {
         })
     }
 
-    const ViewConverter = (views)=>
-    {
+    const ViewConverter = (views) => {
         let count = 0;
         let originalCount = views;
-        while(views!==0)
-        {
-           count++;
-           views = parseInt(views/10);      
+        while (views !== 0) {
+            count++;
+            views = parseInt(views / 10);
         }
-  
-        if((count-1) === 4 || count-1 === 3)
-        {
-          return ((originalCount/Math.pow(10,3)).toString().slice(0,4) + 'K')
+
+        if ((count - 1) === 4 || count - 1 === 3) {
+            return ((originalCount / Math.pow(10, 3)).toString().slice(0, 4) + 'K')
         }
-        else if((count-1) === 5)
-        {
-          return ((originalCount/Math.pow(10,5)).toString().slice(0,4) + 'lakh')
+        else if ((count - 1) === 5) {
+            return ((originalCount / Math.pow(10, 5)).toString().slice(0, 4) + 'lakh')
         }
-        else if((count-1) >= 6)
-        {
-          return ((originalCount/Math.pow(10,6)).toString().slice(0,2) + 'M')
+        else if ((count - 1) >= 6) {
+            return ((originalCount / Math.pow(10, 6)).toString().slice(0, 2) + 'M')
         }
-        else
-        {
-          return originalCount;
+        else {
+            return originalCount;
         }
     }
     return (
@@ -72,11 +68,13 @@ const Video = () => {
                         <img src={channel.meta.avatar[0].url} width='40px' className='rounded-full self-start' alt="channel" />
                         <div onClick={() => { gotoChannel() }} >
                             <h4 className='flex font-bold ml-2 videoChannelTitle cursor-pointer'>{videodetail.channelTitle} <img src="/images/verify.png" width="20px" className='self-center mx-2' alt="verify" /></h4>
-                            <div className='flex'> {channel.meta.subscriberCountText ? <h1 className='ml-2 text-sm videoSubCount'>{channel.meta.subscriberCountText} subscribers</h1> : ' '}
-                                <h4 className='text-sm ml-2 videoSubCount'>{ ViewConverter(videodetail.viewCount)} views</h4>
+                            <div className='flex'>
+                                {channel.meta.subscriberCountText ? <h1 className='ml-2 text-sm videoSubCount'>{channel.meta.subscriberCountText} subscribers</h1> : ' '}
+                                <h4 className='text-sm ml-2 videoSubCount'>{ViewConverter(videodetail.viewCount)} views</h4>
                             </div>
+                            <h4 className='text-sm ml-2 videoSubCount'>{ViewConverter(videodetail.likeCount)} likes</h4>
                         </div>
-                        <button className={`bg-${theme === 'light' ? 'black' : 'white'}  ${theme === 'light' ? 'text-white' : 'text-black'} py-1 font-bold ml-5 px-4 rounded-full cursor-pointer hover:bg-gray-900 btn`}>Subscribe</button>
+                        <button className={`bg-${theme === 'light' ? 'black' : 'white'}  ${theme === 'light' ? 'text-white' : 'text-black'} py-1 font-bold ml-5 px-4 rounded-full cursor-pointer`}>Subscribe</button>
                     </div>
                 </div>
                 : ''}

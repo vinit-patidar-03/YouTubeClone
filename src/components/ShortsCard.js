@@ -8,7 +8,7 @@ const ShortsCard = (props) => {
   const { video} = props;
 
   const Render = () => {
-    Navigate(`/shorts/${video.videoId}`)
+    Navigate(`/shorts/${video.videoId}/:cid`)
   }
   return (
     <>

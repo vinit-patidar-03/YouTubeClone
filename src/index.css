@@ -392,7 +392,7 @@ html
 
     .videoChannelDetail,.videoTitle
     {
-        margin: 5px 10px;
+        padding: 5px 10px;
     }
 
     .suggestVideoCard
@@ -406,12 +406,12 @@ html
     
     .videoTitle
     {
-        width: 80vw;
+        width: 100vw;
         line-height: 15px;
     }
     .videoChannelDetail
     {
-        width: 80vw;
+        width: 100vw;
     }
 
     .suggestCardBody

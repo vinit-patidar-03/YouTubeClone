@@ -28,7 +28,7 @@ function App() {
                 <Route path='searchResults/:query' element={<SearchResults/>} />
                 <Route path='video/:id/:cid' element={<VideoDetails />}/>
                 <Route path='channelDetails/:cid' element={<ChannelDetails />}/>
-                <Route path='shorts/:id' element={<ShortVideos/>} />
+                <Route path='shorts/:id/:cid' element={<ShortVideos/>} />
                 <Route path='playlist/:pid' element={ <PlaylistDetails/>} />
                 <Route path='trending' element={<Trending />} />
                 <Route path='treasure' element={<TreasureHunt/>} />

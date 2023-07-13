@@ -4,7 +4,7 @@ import Context from '../context/Context';
 
 const BottomNavbar = () => {
   const Navigate = useNavigate();
-  const {theme,setTheme} = useContext(Context);
+  const {theme,setTheme,cid} = useContext(Context);
 
   return (
     <>
@@ -16,7 +16,7 @@ const BottomNavbar = () => {
               <i className="fa-solid fa-house fa-lg my-2 "></i>
             </li>
 
-            <li className='flex flex-col justify-center cursor-pointer' onClick={() => { Navigate('shorts/:id') }} title='Shorts'>
+            <li className='flex flex-col justify-center cursor-pointer' onClick={() => { Navigate(`shorts/:id/${cid}`) }} title='Shorts'>
               <i className="fa-solid fa-play fa-lg my-2"></i>
             </li>
 
