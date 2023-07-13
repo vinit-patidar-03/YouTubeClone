@@ -9,9 +9,12 @@ const UpperNavbar = () => {
      const location = useLocation()
      useEffect(() => { }, [location])
 
-     const setCategory = (event) => {
-          setSearch(event.target.value);
-     }
+     
+
+    const setCategory = (event)=>
+    {
+       setSearch(event.target.value)
+    }
 
      const searchResults = (event) => {
           if (search.length !== 0) {

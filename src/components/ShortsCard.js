@@ -5,7 +5,7 @@ import Context from '../context/Context';
 const ShortsCard = (props) => {
   const Navigate = useNavigate();
   const { theme } = useContext(Context)
-  const { video, cid } = props;
+  const { video} = props;
 
   const Render = () => {
     Navigate(`/shorts/${video.videoId}`)

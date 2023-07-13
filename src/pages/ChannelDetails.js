@@ -16,7 +16,7 @@ const ChannelDetails = () => {
   const [videopage, setVideoPage] = useState(0);
   const [playlistpage, setPlaylistPage] = useState(0);
   const [channelVideos, setChannelVideos] = useState('')
-  const { channel, setChannel, theme } = useContext(Context);
+  const { channel, setChannel, theme} = useContext(Context);
 
 
   useEffect(() => {
@@ -198,7 +198,7 @@ const ChannelDetails = () => {
           </div>
         </section>
         <div className={`fixed right-[10px] bottom-[50px] cursor-pointer flex justify-center items-center rounded-full w-10 h-10 bg-${theme === 'light' ? 'white' : 'black'}`} onClick={moveTotop}>
-          <i class="fa-solid fa-arrow-up fa-xl"></i>
+          <i className="fa-solid fa-arrow-up fa-xl"></i>
         </div>
       </div>
     }

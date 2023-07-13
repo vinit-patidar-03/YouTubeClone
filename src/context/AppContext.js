@@ -9,8 +9,9 @@ const AppContext = (props) => {
     const [selectCategory,setSelectedCategory] = useState('Bhajans');
     const [mainpageVideos,setMainPagevideos] = useState('');
     const [searchResult,setSearchResults] = useState('');
-    const [searchcategory,setSearchcategory] = useState('GoldMines');
+    const [searchcategory,setSearchcategory] = useState('Goldmines');
     const [channel,setChannel] = useState('');
+    const [shortscategory,setShortsCategory] = useState('Bhajans');
     const [theme,setTheme] = useState('light');
 
     
@@ -19,6 +20,7 @@ const AppContext = (props) => {
     useEffect(()=>
     {
         fetchDataforSelectedCategory(selectCategory);
+        setShortsCategory(selectCategory);
         themeChanger(theme);
     },[selectCategory,theme])
 
@@ -58,7 +60,9 @@ const AppContext = (props) => {
       channel,
       setChannel,
       theme,
-      setTheme}
+      setTheme,
+      shortscategory,
+      setShortsCategory}
       }>{props.children}</Context.Provider>
   )
 }
