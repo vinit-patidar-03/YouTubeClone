@@ -1,9 +1,11 @@
-import React,{useEffect, useState} from 'react'
+import React,{useContext, useEffect, useState} from 'react'
 import { fetchData } from '../API/YoutubeAPI'
 import VideoCard from '../components/VideoCard';
+import Context from '../context/Context';
 
 const TreasureHunt = () => {
 
+    const {theme} = useContext(Context);
     const [treasure,setTreasure] = useState('');
 
     useEffect(()=>
@@ -21,7 +23,7 @@ const TreasureHunt = () => {
   return (
     <>
       <div className='mt-[60px] mb-[50px]'>
-          <h4 className='text-center font-bold'>Treasure for You</h4>
+          <h4 className={`text-center font-bold ${theme === 'light'?'text-black':'text-white'}`}>Treasure for You</h4>
           <hr />
           <div className='flex flex-wrap'>
             { treasure &&
