@@ -26,7 +26,7 @@ const ShortVideos = () =>{
                 setShorts(res.data.data.filter((elem) => { return elem.type === 'shorts_listing' })[0].data);
             })
         }
-        else if(id === ':/id')
+        else if(shortscategory === cid && id === ':id')
         {
             fetchData(`channel/shorts?id=${shortscategory}`).then((res)=>
             {
