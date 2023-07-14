@@ -19,7 +19,6 @@ const TreasureHunt = () => {
     })
   }
 
-  console.log(treasure)
   return (
     <>
       <div className='mt-[60px] mb-[50px]'>
