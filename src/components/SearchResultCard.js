@@ -73,7 +73,7 @@ const SearchResultCard = (props) => {
                   <p className='flex items-center text-sm my-2'>
                     <img src="/images/live.png" width='20px' className='mr-2' alt="live" />
                   </p>}
-                <p className='text-[10px] my-2'>{video?.viewCount} views • {video?.publishedTimeText}</p>
+                <p className='text-[10px] my-2'>{ViewConverter(video?.viewCount)} views • {video?.publishedTimeText}</p>
               </div>
             </div>
 
