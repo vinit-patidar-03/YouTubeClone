@@ -55,7 +55,7 @@ const SearchResultCard = (props) => {
               <h4 className='text-[10px] my-2'>{ViewConverter(video.viewCount)} views • {video?.publishedTimeText}</h4>
               <div className='flex items-center my-3 text-xs searchResultChannelTitle'>
                 <img src={video.channelThumbnail[0].url} width='20px' className='rounded-full mr-2' alt="" />
-                <h5 className='font-semibold' onClick={()=>{Navigate(`/channelDetails/${video.channelId}`)}}>{video?.channelTitle}</h5>
+                <h5 className='font-semibold cursor-pointer' onClick={()=>{Navigate(`/channelDetails/${video.channelId}`)}}>{video?.channelTitle}</h5>
                 <img src="/images/verify.png" className='self-center mx-2 w-3' alt="verify" />
                 {video.isLive &&
                   <p className='flex items-center text-sm my-2'>
