@@ -40,6 +40,7 @@ const Trending = () => {
 
     return (
         <>
+        { trendingvideos &&
             <div className='mt-[60px] mb-[50px]'>
 
                 <div className={`my-3 text-${theme === 'light' ? 'black' : 'white'}`}>
@@ -97,7 +98,7 @@ const Trending = () => {
                     <i className={`fa-solid fa-arrow-up fa-lg text-${theme === 'light'?'black':'white'}`}></i>
                 </div>
             </div>
-
+        }
         </>
     )
 }

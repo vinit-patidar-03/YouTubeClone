@@ -21,6 +21,7 @@ const TreasureHunt = () => {
 
   return (
     <>
+    { treasure &&
       <div className='mt-[60px] mb-[50px]'>
         <h4 className={`text-center font-bold ${theme === 'light' ? 'text-black' : 'text-white'}`}>Treasure for You</h4>
         <hr />
@@ -66,6 +67,7 @@ const TreasureHunt = () => {
 
         </section>
       </div>
+    }
     </>
   )
 }
