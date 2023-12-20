@@ -5,37 +5,31 @@ import Context from '../context/Context';
 const SuggestVideoCard = (props) => {
   const { video } = props;
   const Navigate = useNavigate();
-  const {theme} = useContext(Context);
+  const { theme } = useContext(Context);
   const Render = () => {
     Navigate(`/video/${video.videoId}/${video.channelId}`)
   }
 
-  const ViewConverter = (views)=>
-  {
-      let count = 0;
-      let originalCount = views;
-      while(views!==0)
-      {
-         count++;
-         views = parseInt(views/10);      
-      }
+  const ViewConverter = (views) => {
+    let count = 0;
+    let originalCount = views;
+    while (views !== 0) {
+      count++;
+      views = parseInt(views / 10);
+    }
 
-      if((count-1) === 4 || count-1 === 3)
-      {
-        return ((originalCount/Math.pow(10,3)).toString().slice(0,4) + 'K')
-      }
-      else if((count-1) === 5)
-      {
-        return ((originalCount/Math.pow(10,5)).toString().slice(0,4) + 'lakh')
-      }
-      else if((count-1) >= 6)
-      {
-        return ((originalCount/Math.pow(10,6)).toString().slice(0,4) + 'M')
-      }
-      else
-      {
-        return originalCount;
-      }
+    if ((count - 1) === 4 || count - 1 === 3) {
+      return ((originalCount / Math.pow(10, 3)).toString().slice(0, 4) + 'K')
+    }
+    else if ((count - 1) === 5) {
+      return ((originalCount / Math.pow(10, 5)).toString().slice(0, 4) + 'lakh')
+    }
+    else if ((count - 1) >= 6) {
+      return ((originalCount / Math.pow(10, 6)).toString().slice(0, 4) + 'M')
+    }
+    else {
+      return originalCount;
+    }
   }
 
   return (
@@ -54,10 +48,10 @@ const SuggestVideoCard = (props) => {
             <h4 className='leading-3 mt-2 font-semibold text-[10px] suggestVideoTitle1'>{video?.title}</h4>
             <div className='suggestvideoDetail'>
               <div className='flex items-center suggestVideoChannelTitle'>
-              <h5>{video?.channelTitle} </h5>
-              <img src="/images/verify.png" className='self-center mx-2 w-3' alt="verify" />
+                <h5>{video?.channelTitle} </h5>
+                <img src="/images/verify.png" className='self-center mx-2 w-3' alt="verify" />
               </div>
-              {video.isLive ? <h6 className='flex items-center text-xs my-2'><img src="/images/live.png" width='20px' className='mr-2' alt="live" /></h6> : <h6 className={`${theme === 'light'?'text-gray-500':'text-gray-200'} text-[10px] my-1 suggestVideoCount`}>{ViewConverter(video?.viewCount)} views • {video?.publishedTimeText}</h6>}
+              {video.isLive ? <h6 className='flex items-center text-xs my-2'><img src="/images/live.png" width='20px' className='mr-2' alt="live" /></h6> : <h6 className={`${theme === 'light' ? 'text-gray-500' : 'text-gray-200'} text-[10px] my-1 suggestVideoCount`}>{ViewConverter(video?.viewCount)} views • {video?.publishedTimeText}</h6>}
             </div>
             <div className='suggestvideoDetail1'>
               <div className='flex items-center my-3 text-xs searchResultChannelTitle'>
@@ -67,7 +61,7 @@ const SuggestVideoCard = (props) => {
                   <div className='flex items-center text-sm my-2'>
                     <img src="/images/live.png" width='20px' className='mr-2' alt="live" />
                   </div>}
-                <p className={`text-[10px] my-2 ${theme === 'light'?'text-gray-500':'text-gray-200'}`}>{ViewConverter(video?.viewCount)} views • {video?.publishedTimeText}</p>
+                <p className={`text-[10px] my-2 ${theme === 'light' ? 'text-gray-500' : 'text-gray-200'}`}>{ViewConverter(video?.viewCount)} views • {video?.publishedTimeText}</p>
               </div>
             </div>
           </div>

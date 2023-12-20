@@ -16,7 +16,7 @@ const ChannelDetails = () => {
   const [videopage, setVideoPage] = useState(0);
   const [playlistpage, setPlaylistPage] = useState(0);
   const [channelVideos, setChannelVideos] = useState('')
-  const { channel, setChannel, theme,setShortsCategory,setCid} = useContext(Context);
+  const { channel, setChannel, theme, setShortsCategory, setCid } = useContext(Context);
 
 
   useEffect(() => {

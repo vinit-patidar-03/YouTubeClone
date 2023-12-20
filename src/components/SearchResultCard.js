@@ -11,32 +11,26 @@ const SearchResultCard = (props) => {
     Navigate(`/video/${video.videoId}/${video.channelId}`)
   }
 
-  const ViewConverter = (views)=>
-  {
-      let count = 0;
-      let originalCount = views;
-      while(views!==0)
-      {
-         count++;
-         views = parseInt(views/10);      
-      }
+  const ViewConverter = (views) => {
+    let count = 0;
+    let originalCount = views;
+    while (views !== 0) {
+      count++;
+      views = parseInt(views / 10);
+    }
 
-      if((count-1) === 4 || count-1 === 3)
-      {
-        return ((originalCount/Math.pow(10,3)).toString().slice(0,4) + 'K')
-      }
-      else if((count-1) === 5)
-      {
-        return ((originalCount/Math.pow(10,5)).toString().slice(0,4) + 'lakh')
-      }
-      else if((count-1) >= 6)
-      {
-        return ((originalCount/Math.pow(10,6)).toString().slice(0,4) + 'M')
-      }
-      else
-      {
-        return originalCount;
-      }
+    if ((count - 1) === 4 || count - 1 === 3) {
+      return ((originalCount / Math.pow(10, 3)).toString().slice(0, 4) + 'K')
+    }
+    else if ((count - 1) === 5) {
+      return ((originalCount / Math.pow(10, 5)).toString().slice(0, 4) + 'lakh')
+    }
+    else if ((count - 1) >= 6) {
+      return ((originalCount / Math.pow(10, 6)).toString().slice(0, 4) + 'M')
+    }
+    else {
+      return originalCount;
+    }
   }
   return (
     <>
@@ -55,7 +49,7 @@ const SearchResultCard = (props) => {
               <h4 className='text-[10px] my-2'>{ViewConverter(video.viewCount)} views • {video?.publishedTimeText}</h4>
               <div className='flex items-center my-3 text-xs searchResultChannelTitle'>
                 <img src={video.channelThumbnail[0].url} width='20px' className='rounded-full mr-2' alt="" />
-                <h5 className='font-semibold cursor-pointer' onClick={()=>{Navigate(`/channelDetails/${video.channelId}`)}}>{video?.channelTitle}</h5>
+                <h5 className='font-semibold cursor-pointer' onClick={() => { Navigate(`/channelDetails/${video.channelId}`) }}>{video?.channelTitle}</h5>
                 <img src="/images/verify.png" className='self-center mx-2 w-3' alt="verify" />
                 {video.isLive &&
                   <p className='flex items-center text-sm my-2'>
@@ -67,7 +61,7 @@ const SearchResultCard = (props) => {
             <div className={`text-${theme === 'light' ? 'black' : 'white'} searchResultDetails `}>
               <div className='flex items-center my-3 text-xs searchResultChannelTitle'>
                 {<img src={video.channelThumbnail[0].url} width='20px' className='rounded-full mr-2' alt="" />}
-                <h5 onClick={()=>{Navigate(`/channelDetails/${video.channelId}`)}}>{video?.channelTitle}</h5>
+                <h5 onClick={() => { Navigate(`/channelDetails/${video.channelId}`) }}>{video?.channelTitle}</h5>
                 <img src="/images/verify.png" className='self-center mx-2 w-3' alt="verify" />
                 {video.isLive &&
                   <p className='flex items-center text-sm my-2'>

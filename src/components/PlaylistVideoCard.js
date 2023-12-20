@@ -4,11 +4,10 @@ import Context from '../context/Context';
 const PlaylistVideoCard = (props) => {
     const { video } = props;
     const Navigate = useNavigate();
-    const {theme} = useContext(Context);
-  const Render = () =>
-  {
-    Navigate(`/video/${video.videoId}/${video.channelId}`)
-  }
+    const { theme } = useContext(Context);
+    const Render = () => {
+        Navigate(`/video/${video.videoId}/${video.channelId}`)
+    }
     return (
         <>
             <div className={`flex flex-col w-[330px] m-3 text-${theme === 'light' ? 'black' : 'white'}`}>

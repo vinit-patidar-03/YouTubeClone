@@ -7,13 +7,12 @@ import Context from '../context/Context'
 
 const VideoDetails = () => {
 
-  const {theme} = useContext(Context);
-  const {id} = useParams();
+  const { theme } = useContext(Context);
+  const { id } = useParams();
 
-  useEffect(()=>
-  {
-      moveTotop()
-  },[id])
+  useEffect(() => {
+    moveTotop()
+  }, [id])
 
   const moveTotop = () => {
     window.scrollTo({
@@ -26,8 +25,8 @@ const VideoDetails = () => {
       <Video />
       <SuggestVideo />
       <div className={`fixed right-[10px] bottom-[50px] cursor-pointer flex justify-center items-center rounded-full w-10 h-10 bg-${theme === 'light' ? 'white' : 'black'} text-${theme === 'light' ? 'black' : 'white'}`} onClick={moveTotop}>
-          <i className="fa-solid fa-arrow-up fa-xl"></i>
-        </div>
+        <i className="fa-solid fa-arrow-up fa-xl"></i>
+      </div>
     </div>
   )
 }

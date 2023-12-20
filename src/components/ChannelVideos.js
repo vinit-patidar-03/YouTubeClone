@@ -9,34 +9,28 @@ const ChannelVideos = (props) => {
   const Render = () => {
     Navigate(`/video/${video.videoId}/${cid}`)
   }
-  
 
-  const ViewConverter = (views)=>
-  {
-      let count = 0;
-      let originalCount = views;
-      while(views!==0)
-      {
-         count++;
-         views = parseInt(views/10);      
-      }
 
-      if((count-1) === 4 || count-1 === 3)
-      {
-        return ((originalCount/Math.pow(10,3)).toString().slice(0,4) + 'K')
-      }
-      else if((count-1) === 5)
-      {
-        return ((originalCount/Math.pow(10,5)).toString().slice(0,4) + 'lakh')
-      }
-      else if((count-1) >= 6)
-      {
-        return ((originalCount/Math.pow(10,6)).toString().slice(0,4) + 'M')
-      }
-      else
-      {
-        return originalCount;
-      }
+  const ViewConverter = (views) => {
+    let count = 0;
+    let originalCount = views;
+    while (views !== 0) {
+      count++;
+      views = parseInt(views / 10);
+    }
+
+    if ((count - 1) === 4 || count - 1 === 3) {
+      return ((originalCount / Math.pow(10, 3)).toString().slice(0, 4) + 'K')
+    }
+    else if ((count - 1) === 5) {
+      return ((originalCount / Math.pow(10, 5)).toString().slice(0, 4) + 'lakh')
+    }
+    else if ((count - 1) >= 6) {
+      return ((originalCount / Math.pow(10, 6)).toString().slice(0, 4) + 'M')
+    }
+    else {
+      return originalCount;
+    }
   }
 
   return (

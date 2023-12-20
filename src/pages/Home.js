@@ -5,10 +5,10 @@ import MainPageVideos from '../components/MainPageVideos'
 const Home = () => {
   return (
     <>
-        <div className='relative top-[calc(60px+3rem)] p-3 homepage'>
-              <UpperMenubar />
-              <MainPageVideos />
-        </div>
+      <div className='relative top-[calc(60px+3rem)] p-3 homepage'>
+        <UpperMenubar />
+        <MainPageVideos />
+      </div>
     </>
   )
 }

@@ -22,7 +22,8 @@ const PlaylistDetails = (props) => {
         <>
             <div className='mb-[50px]'>
                 <div className='flex justify-center'>
-                    {channelPlaylistsVideos &&
+                    {
+                        channelPlaylistsVideos &&
                         <div className={`mt-[80px] rounded-lg w-96 p-5 text-${theme === 'light' ? 'black' : 'white'}`} style={{ backgroundColor: `${theme === 'light' ? '#E5E5CB' : 'gray'}` }}>
                             <div className='w-full relative'>
                                 <img src={channelPlaylistsVideos.meta.thumbnail[3].url || channelPlaylistsVideos.meta.thumbnail[0].url} className='w-full' alt="thumbnail" />
@@ -46,7 +47,8 @@ const PlaylistDetails = (props) => {
                 <hr className='my-3' />
 
                 <div className='flex flex-wrap justify-center'>
-                    {channelPlaylistsVideos &&
+                    {
+                        channelPlaylistsVideos &&
                         channelPlaylistsVideos.data.map((elem, index) => {
                             return <PlaylistVideoCard video={elem} key={index} />
                         })

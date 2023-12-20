@@ -5,38 +5,33 @@ import SuggestVideoCard from './SuggestVideoCard';
 
 const SuggestVideo = () => {
 
-  const {id} = useParams();
-  const [related,setRelated] = useState('');
+    const { id } = useParams();
+    const [related, setRelated] = useState('');
 
-  useEffect(()=>
-  {
-     fetchRelatedContent(id)
-  },[id])
+    useEffect(() => {
+        fetchRelatedContent(id)
+    }, [id])
 
-  const fetchRelatedContent = (Id)=>
-  { 
-     fetchData(`related?id=${Id}`).then((res)=>
-     {
-          setRelated(res.data.data);
-     })
-  }
+    const fetchRelatedContent = (Id) => {
+        fetchData(`related?id=${Id}`).then((res) => {
+            setRelated(res.data.data);
+        })
+    }
 
-  return (
-    <>
-        <div className='suggestVideopage scroll-track mt-0'>
-            {
-                related.length !==0 && related.map((elem,index)=>
+    return (
+        <>
+            <div className='suggestVideopage scroll-track mt-0'>
                 {
-                    if(elem.type !== 'video')
-                    {
-                        return false;
-                    }
-                    return <SuggestVideoCard video={elem} key={index}/>
-                })
-            }
-        </div>
-    </>
-  )
+                    related.length !== 0 && related.map((elem, index) => {
+                        if (elem.type !== 'video') {
+                            return false;
+                        }
+                        return <SuggestVideoCard video={elem} key={index} />
+                    })
+                }
+            </div>
+        </>
+    )
 }
 
 export default SuggestVideo;
