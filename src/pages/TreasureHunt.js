@@ -3,6 +3,7 @@ import { fetchData } from '../API/YoutubeAPI'
 import VideoCard from '../components/VideoCard';
 import Context from '../context/Context';
 import ShortsCard from '../components/ShortsCard'
+import Spinner from '../components/Spinner';
 
 const TreasureHunt = () => {
 
@@ -69,6 +70,7 @@ const TreasureHunt = () => {
           </section>
         </div>
       }
+      {!treasure && <Spinner />}
     </>
   )
 }

@@ -1,5 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react';
+import { GrFormNext } from "react-icons/gr";
+import { GrFormPrevious } from "react-icons/gr";
 import Context from '../context/Context'
 import ChannelVideos from '../components/ChannelVideos';
 import { useParams } from 'react-router-dom';
@@ -8,6 +10,7 @@ import PlaylistCard from '../components/PlaylistCard';
 import Channels from '../components/Channels';
 import ShortsCard from '../components/ShortsCard';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+import Spinner from '../components/Spinner';
 
 const ChannelDetails = () => {
 
@@ -138,8 +141,8 @@ const ChannelDetails = () => {
             {channel.data.filter((elem) => { return elem.type === 'video_listing' && elem.title.split(' ')[1] !== 'live' }).length === 0 && <h1 className='text-center text-xl'>No Videos</h1>}
           </div>
           <div className='flex justify-evenly'>
-            <button onClick={() => { ChangePage('decr', 'video') }} className={`py-2 px-5 bg-${theme === 'light' ? 'black' : 'white'} text-${theme === 'light' ? 'white' : 'black'} rounded-full font-semibold`}>Previous</button>
-            <button onClick={() => { ChangePage('incr', 'video') }} className={`py-2 px-5 bg-${theme === 'light' ? 'black' : 'white'} text-${theme === 'light' ? 'white' : 'black'} rounded-full font-semibold`}>Next</button>
+            <button onClick={() => { ChangePage('decr', 'video') }} className={`py-2 px-5 text-${theme === 'light' ? 'black' : 'white'} rounded-full font-semibold text-5xl`}><GrFormPrevious /></button>
+            <button onClick={() => { ChangePage('incr', 'video') }} className={`py-2 px-5 text-${theme === 'light' ? 'black' : 'white'} rounded-full font-semibold text-5xl`}><GrFormNext /></button>
           </div>
         </section>
 
@@ -157,8 +160,8 @@ const ChannelDetails = () => {
               </div>
 
               <div className='flex justify-evenly'>
-                <button onClick={() => { ChangePage('decr', 'playlist') }} className='py-2 px-5 bg-black text-white rounded-full font-semibold'>Previous</button>
-                <button onClick={() => { ChangePage('incr', 'playlist') }} className='py-2 px-5 bg-black text-white rounded-full font-semibold'>Next</button>
+                <button onClick={() => { ChangePage('decr', 'playlist') }} className={`py-2 px-5 text-${theme === ' light' ? 'black' : 'white'} rounded-full font-semibold`}><GrFormPrevious /></button>
+                <button onClick={() => { ChangePage('incr', 'playlist') }} className={`py-2 px-5 text-${theme === ' light' ? 'black' : 'white'} rounded-full font-semibold`}><GrFormNext /></button>
               </div>
             </div>
             :
@@ -204,6 +207,7 @@ const ChannelDetails = () => {
         </div>
       </div>
     }
+      {!channel && <Spinner />}
     </>
   )
 }

@@ -4,6 +4,7 @@ import ReactPlayer from 'react-player/youtube';
 import { fetchData } from '../API/YoutubeAPI';
 import { useNavigate, useParams } from 'react-router-dom';
 import Context from '../context/Context';
+import Spinner from './Spinner';
 
 const Video = () => {
     const { channel, setChannel, theme } = useContext(Context);
@@ -76,7 +77,7 @@ const Video = () => {
                         <button className={`bg-${theme === 'light' ? 'black' : 'white'}  ${theme === 'light' ? 'text-white' : 'text-black'} py-1 font-bold ml-5 px-4 rounded-full cursor-pointer`}>Subscribe</button>
                     </div>
                 </div>
-                : ''}
+                : <Spinner />}
         </>
     )
 }

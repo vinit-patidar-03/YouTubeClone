@@ -3,6 +3,7 @@ import Context from '../context/Context';
 import SearchResultCard from '../components/SearchResultCard';
 import { useNavigate } from 'react-router-dom';
 import { fetchData } from '../API/YoutubeAPI';
+import Spinner from '../components/Spinner';
 
 const SearchResults = () => {
     const { searchcategory, searchResult, setSearchResults, setShortsCategory } = useContext(Context);
@@ -39,6 +40,7 @@ const SearchResults = () => {
                     })
 
                 }
+                {!searchResult && <Spinner />}
             </div>
         }
         </>

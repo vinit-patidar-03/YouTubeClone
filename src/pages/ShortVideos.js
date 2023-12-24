@@ -4,6 +4,7 @@ import Context from '../context/Context'
 import ReactPlayer from 'react-player';
 import { useLocation, useParams } from 'react-router-dom';
 import { fetchData } from '../API/YoutubeAPI';
+import Spinner from '../components/Spinner';
 
 const ShortVideos = () => {
 
@@ -52,7 +53,7 @@ const ShortVideos = () => {
             {
                 shorts.length !== 0 ?
                     <div className='flex justify-center items-center h-[100vh] relative'>
-                        <div className='relative flex justify-center items-center p-3 bg-slate-300 rounded-xl h-[calc(100vh-160px)] w-[calc(0.5625*(100vh-140px))]'>
+                        <div className='relative flex justify-center items-center p-3 rounded-xl h-[calc(100vh-160px)] w-[calc(0.5625*(100vh-140px))]'>
                             <div className=' w-full h-full shortPlayer'>
                                 <ReactPlayer url={`https://www.youtube.com/watch?v=${shorts[shortNo].videoId}`} playing={true} loop={true} width='100%' height='100%' />
                             </div>
@@ -65,13 +66,13 @@ const ShortVideos = () => {
                                 </div>
                             </div>
                             <div className='absolute bottom-5 shortDetails ml-3 w-[95%]'>
-                                <h5 className='text-white font-bold text-sm'>{shorts[shortNo].title}</h5>
-                                <h6 className='text-white text-xs'>{shorts[shortNo].viewCountText}</h6>
+                                <p className='text-white font-bold text-sm'>{shorts[shortNo].title}</p>
+                                <p className='text-white text-xs'>{shorts[shortNo].viewCountText}</p>
                             </div>
                         </div>
                     </div>
                     :
-                    <h4 className='text-center font-bold mt-[80px]'>No shorts for This Channel or Search</h4>
+                    <Spinner />
             }
 
             {

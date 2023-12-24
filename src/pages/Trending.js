@@ -3,6 +3,7 @@ import { fetchData } from '../API/YoutubeAPI';
 import VideoCard from '../components/VideoCard';
 import ShortsCard from '../components/ShortsCard';
 import Context from '../context/Context';
+import Spinner from '../components/Spinner';
 
 const Trending = () => {
 
@@ -99,6 +100,7 @@ const Trending = () => {
                     </div>
                 </div>
             }
+            {!trendingvideos && <Spinner />}
         </>
     )
 }

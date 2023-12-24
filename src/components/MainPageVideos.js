@@ -3,8 +3,9 @@ import Context from '../context/Context'
 import VideoCard from './VideoCard';
 
 const MainPageVideos = () => {
-  const context = useContext(Context);
-  const { mainpageVideos, loading, setShortsCategory, selectCategory } = context;
+
+  const { mainpageVideos, loading, setShortsCategory, selectCategory } = useContext(Context);
+
   useEffect(() => {
     setShortsCategory(selectCategory)
   })

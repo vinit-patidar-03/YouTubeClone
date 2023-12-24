@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { fetchData } from '../API/YoutubeAPI';
 import PlaylistVideoCard from '../components/PlaylistVideoCard';
 import Context from '../context/Context';
+import Spinner from '../components/Spinner';
 
 const PlaylistDetails = (props) => {
     const { pid } = useParams();
@@ -19,12 +20,12 @@ const PlaylistDetails = (props) => {
         })
     }
     return (
-        <>
+        <>{channelPlaylistsVideos ?
             <div className='mb-[50px]'>
                 <div className='flex justify-center'>
                     {
                         channelPlaylistsVideos &&
-                        <div className={`mt-[80px] rounded-lg w-96 p-5 text-${theme === 'light' ? 'black' : 'white'}`} style={{ backgroundColor: `${theme === 'light' ? '#E5E5CB' : 'gray'}` }}>
+                        <div className={`mt-[80px] rounded-lg w-96 p-5 text-${theme === 'light' ? 'black' : 'white'} border-2 ${theme === 'light' ? 'border-black' : 'border-white'}`} style={{ backgroundColor: `${theme === 'light' ? '#FFFBF5' : '#141414'}` }}>
                             <div className='w-full relative'>
                                 <img src={channelPlaylistsVideos.meta.thumbnail[3].url || channelPlaylistsVideos.meta.thumbnail[0].url} className='w-full' alt="thumbnail" />
                                 <div className='text-white text-center absolute right-2 bottom-2'>
@@ -55,6 +56,9 @@ const PlaylistDetails = (props) => {
                     }
                 </div>
             </div>
+            :
+            <Spinner />
+        }
         </>
     )
 }
