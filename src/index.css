@@ -1,131 +1,119 @@
 @tailwind base;
 
 .thumb img {
-    max-width: unset !important;
+  max-width: unset !important;
 }
 
 .thumb1 img {
-    max-width: unset !important;
+  max-width: unset !important;
 }
 
 @tailwind components;
 @tailwind utilities;
 
-html
-{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-::-webkit-scrollbar
-{
-    width: 1rem;
+::-webkit-scrollbar {
+  width: 1rem;
 }
 
-::-webkit-scrollbar-thumb
-{   background: linear-gradient(red,orange,yellow,orangered);
-    border-radius: 0.5rem;
-    border: 0.3rem solid transparent;
-    background-clip: content-box;
+::-webkit-scrollbar-thumb {
+  background: rgb(221, 216, 216);
+  border-radius: 0.5rem;
+  border: 0.3rem solid transparent;
+  background-clip: content-box;
 }
 
 .scroll-track::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .scroll-track {
-    scrollbar-width: none;
+  scrollbar-width: none;
 }
 
 .mainpage-channelThumbnail {
-    width: 40px;
+  width: 40px;
 }
 
-
 .searchresultpage {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    left: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  left: 0px;
 }
 
 .searchresultThumbnail {
-    width: 400px;
+  width: 400px;
 }
 
 .navbarSearch {
-    width: 400px;
-    padding: 5px 20px;
+  width: 400px;
+  padding: 5px 20px;
 }
 
 .searchResultCard {
-    width: 70%;
+  width: 70%;
 }
 
 .navbarSearchIcon {
-    width: 40px;
-    height: 35px;
+  width: 40px;
+  height: 35px;
 }
 
 .searchResultDetails {
-    display: none;
+  display: none;
 }
 
 .suggestVideopage {
-    height: 615px;
-    position: relative;
-    left: 20px;
-    overflow-y: scroll;
-    width: 500px;
+  height: 615px;
+  position: relative;
+  left: 20px;
+  overflow-y: scroll;
+  width: 500px;
 }
 
 .suggestVideoTitle1 {
-    display: none;
+  display: none;
 }
 
 .suggestVideoThumbnail {
-    width: 200px;
+  width: 200px;
 }
 
 .suggestVideoCard {
-    width: 100%;
+  width: 100%;
 }
 
-
-
-.suggestVideoChannelTitle
-{
-    font-size: 10px;
+.suggestVideoChannelTitle {
+  font-size: 10px;
 }
 
-.Video
-{
-    margin: 0px 10px 50px 10px;
+.Video {
+  margin: 0px 10px 50px 10px;
 }
 
-.playedVideo
-{
-    width: 890px;
-    height: 500px;
+.playedVideo {
+  width: 58vw;
+  height: 68vh;
 }
 
-.videoTitle
-{
-    width: 890px;
+.videoTitle {
+  width: 890px;
 }
 
-.videoChannelDetail
-{
-    width: 890px;
+.videoChannelDetail {
+  width: 890px;
 }
 
-.suggestvideoDetail1
-{
-   display: none;
+.suggestvideoDetail1 {
+  display: none;
 }
 
-.ChannelDetailpageAvatar
-{
-    width: 100px;
+.ChannelDetailpageAvatar {
+  width: 100px;
 }
 
 /* .BottomNavbar
@@ -134,407 +122,375 @@ html
 } */
 /* Media quaries Responsive Design */
 
-@media (max-width:1220px) {
-    .videoDetailpage {
-        margin: 20px 0px 50px 0px;
-        width: 100vw;
-        flex-direction: column;
-        align-items: center;
-    }
+@media (max-width: 1220px) {
+  .videoDetailpage {
+    margin: 20px 0px 50px 0px;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .suggestVideopage {
-        margin: 20px 0px 50px 0px;
-        height: auto;
-        position: relative;
-        left: 0px;
-        overflow-y: visible;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .suggestVideopage {
+    margin: 20px 0px 50px 0px;
+    height: auto;
+    position: relative;
+    left: 0px;
+    overflow-y: visible;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
+  .suggestVideoThumbnail {
+    width: 400px;
+  }
 
-    .suggestVideoThumbnail {
-        width: 400px;
-    }
+  .suggestVideoTitle1 {
+    display: block;
+    font-size: 15px;
+    line-height: 22px;
+  }
 
-    .suggestVideoTitle1 {
-        display: block;
-        font-size: 18px;
-        line-height: 22px;
-    }
+  .suggestVideoChannelTitle {
+    margin: 10px 0px;
+    font-size: 15px;
+  }
 
-    .suggestVideoChannelTitle
-    {
-        margin: 10px 0px;
-        font-size: 15px;
-    }
+  .suggestVideoTitle {
+    display: none;
+  }
 
-    .suggestVideoTitle {
-        display: none;
-    }
+  .suggestVideoCard {
+    width: 890px;
+  }
 
-    .suggestVideoCard {
-        width: 890px;
-    }
-
-
-
-    .suggestVideoCount
-    {
-        font-size: 12px;
-    }
+  .suggestVideoCount {
+    font-size: 12px;
+  }
 }
 
-@media (max-width:950px) {
-    .searchResultCard {
-        width: 100%;
-    }
+@media (max-width: 950px) {
+  .searchResultCard {
+    width: 100%;
+  }
 
-    .playedVideo
-    {
-        width: 775px;
-        height: 435px;
-    }
+  .playedVideo {
+    width: 775px;
+    height: 435px;
+  }
 
-    .suggestVideoCard,.Video,.videoChannelDetail,.videoTitle
-    {
-        width: 775px;
-    }
-    
+  .suggestVideoCard,
+  .Video,
+  .videoChannelDetail,
+  .videoTitle {
+    width: 775px;
+  }
 }
 
-@media (max-width:800px) {
-    .mainpage-Card {
-        width: 300px;
-    }
+@media (max-width: 800px) {
+  .mainpage-Card {
+    width: 300px;
+  }
 
-    .searchresultThumbnail {
-        width: 300px;
-    }
+  .searchresultThumbnail {
+    width: 300px;
+  }
 
-    .homepage {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        left: 0px;
-    }
+  .homepage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    left: 0px;
+  }
 
-    .upperMenubar {
-        left: 0px;
-    }
+  .upperMenubar {
+    left: 0px;
+  }
 
-    .navbarSearch {
-        width: 300px;
-    }
+  .navbarSearch {
+    width: 300px;
+  }
 
-    .hide {
-        display: none;
-    }
+  .hide {
+    display: none;
+  }
 
-    /* .BottomNavbar
+  /* .BottomNavbar
     {
         display: block;
     } */
 
-    .playedVideo
-    {
-        width: 675px;
-        height: 380px;
-    }
+  .playedVideo {
+    width: 675px;
+    height: 380px;
+  }
 
-    .suggestVideoCard,.Video,.videoChannelDetail,.videoTitle
-    {
-        width: 675px;
-    }
+  .suggestVideoCard,
+  .Video,
+  .videoChannelDetail,
+  .videoTitle {
+    width: 675px;
+  }
 
-    .suggestVideoTitle1
-    {
-        font-size: 15px;
-    }
+  .suggestVideoTitle1 {
+    font-size: 15px;
+  }
 
-    .shortDetails
-    {
-        bottom: 50px;
-    }
+  .shortDetails {
+    bottom: 50px;
+  }
 
-    /* .suggestVideopage
+  /* .suggestVideopage
     {
         margin-bottom: 120px;
     } */
 }
 
-@media (max-width:700px) {
-    .playedVideo
-    {
-        width: 625px;
-        height: 350px;
-    }
+@media (max-width: 700px) {
+  .playedVideo {
+    width: 625px;
+    height: 350px;
+  }
 
-    .suggestVideoCard,.Video,.videoChannelDetail,.videoTitle
-    {
-        width: 625px;
-    }
+  .suggestVideoCard,
+  .Video,
+  .videoChannelDetail,
+  .videoTitle {
+    width: 625px;
+  }
 
-    .suggestVideoThumbnail
-    {
-        width: 250px;
-    }
+  .suggestVideoThumbnail {
+    width: 250px;
+  }
 }
 
-@media (max-width:660px) {
-    .mainpage-Card {
-        width: 250px;
-    }
+@media (max-width: 660px) {
+  .mainpage-Card {
+    width: 250px;
+  }
 
-    .mainpage-title {
-        line-height: 12px;
-        font-size: 10px;
-    }
+  .mainpage-title {
+    line-height: 15px;
+    font-size: 10px;
+  }
 
-    .mainpage-channelTitle {
-        font-size: 10px;
-    }
+  .mainpage-channelTitle {
+    font-size: 10px;
+  }
 
-    .playedVideo
-    {
-        width: 525px;
-        height: 300px;
-    }
+  .playedVideo {
+    width: 525px;
+    height: 300px;
+  }
 
-    .suggestVideoCard,.Video,.videoChannelDetail,.videoTitle
-    {
-        width: 525px;
-    }
+  .suggestVideoCard,
+  .Video,
+  .videoChannelDetail,
+  .videoTitle {
+    width: 525px;
+  }
 
-    .suggestVideoTitle1
-    {
-        font-size: 12px;
-    }
+  .suggestVideoTitle1 {
+    font-size: 12px;
+  }
 
-    .suggestVideoChannelTitle
-    {
-        font-size: 10px;
-        margin: 5px 0px;
-    }
+  .suggestVideoChannelTitle {
+    font-size: 10px;
+    margin: 5px 0px;
+  }
 
-    .suggestVideoCount
-    {
-        font-size: 10px;
-        margin: 2px 0px;
-    }
+  .suggestVideoCount {
+    font-size: 10px;
+    margin: 2px 0px;
+  }
 }
 
-@media (max-width:560px) {
+@media (max-width: 560px) {
+  .mainpage-Card {
+    width: 90vw;
+    margin: 10px;
+  }
 
-    .mainpage-Card {
-        width: 90vw;
-        margin: 10px;
-    }
- 
-    .mainpage-channelThumbnail {
-        width: 30px;
-    }
+  .mainpage-channelThumbnail {
+    width: 30px;
+  }
 
-    .navbarSearch {
-        width: 150px;
-    }
+  .navbarSearch {
+    width: 150px;
+  }
 
-    .searchResultTitle {
-        font-weight: bold;
-        line-height: 12px;
-        font-size: 10px;
-    }
+  .searchResultTitle {
+    font-weight: bold;
+    line-height: 18px;
+    font-size: 10px;
+  }
 
-    .searchResultChannelTitle {
-        font-size: 10px;
-        margin: 0px 0px;
-    }
+  .searchResultChannelTitle {
+    font-size: 10px;
+    margin: 0px 0px;
+  }
 
-    .searchChannelDetails {
-        margin: 10px 0px;
-        align-self: flex-start;
-    }
+  .searchChannelDetails {
+    margin: 10px 0px;
+    align-self: flex-start;
+  }
 
-    .searchResultcard {
-        flex-direction: column;
-        align-items: center;
-    }
+  .searchResultcard {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .thumb1 {
-        width: 100%;
-    }
+  .thumb1 {
+    width: 100%;
+  }
 
-    .searchresultThumbnail {
-        width: 100%;
-    }
+  .searchresultThumbnail {
+    width: 100%;
+  }
 
-    .searchResultDetails {
-        display: block;
-    }
+  .searchResultDetails {
+    display: block;
+  }
 
-    .searchResultDetails1 {
-        display: none;
-    }
+  .searchResultDetails1 {
+    display: none;
+  }
 
-    .playedVideo
-    {
-        width: 100vw;
-        height: 50vh;
-    }
+  .playedVideo {
+    width: 100vw;
+    height: 50vh;
+  }
 
-    .Video
-    {
-        width: 100vw;
-        margin: 0;
-    }
+  .Video {
+    width: 100vw;
+    margin: 0;
+  }
 
-    .videoChannelDetail,.videoTitle
-    {
-        padding: 5px 10px;
-    }
+  .videoChannelDetail,
+  .videoTitle {
+    padding: 5px 10px;
+  }
 
-    .suggestVideoCard
-    {
-        width: 100vw;
-    }
+  .suggestVideoCard {
+    width: 100vw;
+  }
 
-    .suggestVideoThumbnail{
-        border-radius: 0px;
-    }
-    
-    .videoTitle
-    {
-        width: 100vw;
-        line-height: 15px;
-    }
-    .videoChannelDetail
-    {
-        width: 100vw;
-    }
+  .suggestVideoThumbnail {
+    border-radius: 0px;
+  }
 
-    .suggestCardBody
-    {
-        display: flex;
-        flex-direction: column;
-    }
+  .videoTitle {
+    width: 100vw;
+    line-height: 15px;
+  }
+  .videoChannelDetail {
+    width: 100vw;
+  }
 
-    .suggestVideoThumbnail
-    {
-        width: 100%;
-    }
+  .suggestCardBody {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .videoSubCount
-    {
-        font-size: 10px;
-    }
-    .suggestvideoDetail
-    {
-        display: none;
-    }
+  .suggestVideoThumbnail {
+    width: 100%;
+  }
 
-    .suggestvideoDetail1
-    {
-        display: block;
-    }
+  .videoSubCount {
+    font-size: 10px;
+  }
+  .suggestvideoDetail {
+    display: none;
+  }
 
-    .videoTitle
-    {
-        font-size: 15px;
-    }
+  .suggestvideoDetail1 {
+    display: block;
+  }
 
-    .videoChannelTitle
-    {
-        font-size: 12px;
-    }
+  .videoTitle {
+    font-size: 15px;
+  }
 
-    .suggestVideoTitle1
-    {
-        line-height: 12px;
-    }
+  .videoChannelTitle {
+    font-size: 12px;
+  }
 
-    .btn
-    {
-        padding: 2px 10px;
-        font-size: 10px;
-    }
+  .suggestVideoTitle1 {
+    line-height: 18px;
+  }
 
-    .ChannelDetailpageAvatar
-    {
-        width: 75px;
-    }
+  .btn {
+    padding: 2px 10px;
+    font-size: 10px;
+  }
 
-    .ChannelDetailpageText
-    {
-        font-size: 12px;
-    }
+  .ChannelDetailpageAvatar {
+    width: 75px;
+  }
+
+  .ChannelDetailpageText {
+    font-size: 12px;
+  }
 }
 
-@media (max-width:528px){
-    .ChannelVideosCard
-    {
-        margin: 20px 0px;
-        width: 100vw;
-    }
+@media (max-width: 528px) {
+  .ChannelVideosCard {
+    margin: 20px 0px;
+    width: 100vw;
+  }
 
-    .ChannelVideosThumbnail
-    {
-        border-radius: 0px;
-    }
+  .ChannelVideosThumbnail {
+    border-radius: 0px;
+  }
 
-    .ChannelVideosText
-    {
-        margin: 5px 10px 10px 10px;
-    }
+  .ChannelVideosText {
+    margin: 5px 10px 10px 10px;
+  }
 }
 
-@media (max-width:456px) {
-    .mainpage-Card {
-        width: 100vw;
-        margin: 10px 0px;
-        padding: 0px;
-    }
+@media (max-width: 456px) {
+  .mainpage-Card {
+    width: 100vw;
+    margin: 10px 0px;
+    padding: 0px;
+  }
 
-    .playedVideo
-    {
-        height: 33vh;
-    }
+  .playedVideo {
+    height: 33vh;
+  }
 
-    .mainpage-thumbnail {
-        border-radius: 0px;
-    }
+  .mainpage-thumbnail {
+    border-radius: 0px;
+  }
 
-    .navbarSearch {
-        width: 150px;
-    }
+  .navbarSearch {
+    width: 150px;
+  }
 
-    .shortPlayer
-    {
-        width: 100vw;
-    }
+  .shortPlayer {
+    width: 100vw;
+  }
 
-    /* .navbaruserDetails {
+  /* .navbaruserDetails {
         display: none;
     } */
 
-    .searchresultThumbnail {
-        border-radius: 0px;
-    }
-    
+  .searchresultThumbnail {
+    border-radius: 0px;
+  }
 
-    .searchChannelDetails {
-        margin: 5px 10px;
-    }
+  .searchChannelDetails {
+    margin: 5px 10px;
+  }
 
-    .searchresultpage {
-        margin: 0px 0px 120px 0px ;
-        padding: 0px;
-    }
+  .searchresultpage {
+    margin: 0px 0px 120px 0px;
+    padding: 0px;
+  }
 
-    .ChannelDetailpageAvatar
-    {
-        width: 50px;
-        align-self: center;
-    }
+  .ChannelDetailpageAvatar {
+    width: 50px;
+    align-self: center;
+  }
 }
