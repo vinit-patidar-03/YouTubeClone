@@ -60,7 +60,7 @@ const VideoCard = (props) => {
             </div>
           </div>
           <div
-            className={`flex px-3 my-2 text-${
+            className={`flex my-2 text-${
               theme === "light" ? "black" : "white"
             }`}
           >

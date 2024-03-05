@@ -75,7 +75,7 @@ const PlaylistDetails = (props) => {
             )}
           </div>
 
-          <hr className="my-3 bg-black" />
+          <hr className="my-3 mx-3 h-[2px] bg-black" />
 
           <div className="flex flex-wrap justify-center">
             {channelPlaylistsVideos &&
