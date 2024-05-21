@@ -1,13 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import Context from "../context/Context";
 import { useLocation, useNavigate } from "react-router-dom";
+import { IoIosAddCircle, IoMdSearch } from "react-icons/io";
+import { FaBell, FaMicrophone } from "react-icons/fa6";
 
 const UpperNavbar = () => {
   const { setSearchcategory, theme } = useContext(Context);
   const [search, setSearch] = useState("");
   const Navigate = useNavigate();
   const location = useLocation();
-  useEffect(() => {}, [location]);
+  useEffect(() => { }, [location]);
 
   const setCategory = (event) => {
     setSearch(event.target.value);
@@ -30,18 +32,16 @@ const UpperNavbar = () => {
   return (
     <>
       <nav
-        className={`flex justify-center ${
-          theme === "light" ? "bg-white" : "bg-black"
-        } fixed ${
-          theme === "light" ? "text-black" : "text-white"
-        } top-0 items-center h-[60px] w-full z-10`}
+        className={`flex justify-center ${theme === "light" ? "bg-white" : "bg-black"
+          } fixed ${theme === "light" ? "text-black" : "text-white"
+          } top-0 items-center h-[60px] w-full z-10`}
       >
         <ul className=" w-full flex justify-between">
           <li className="flex items-center justify-center">
             <div className=" flex justify-center items-center mx-3">
               <img
                 src="/images/youtube.png"
-                className="w-[75px] cursor-pointer"
+                className="w-[75px] h-auto cursor-pointer"
                 onClick={() => {
                   Navigate("/");
                 }}
@@ -56,9 +56,8 @@ const UpperNavbar = () => {
                 type="text"
                 name="search"
                 id="search"
-                className={`rounded-l-full cursor-text text-black ${
-                  theme === "light" ? "bg-slate-200" : "bg-gray-200"
-                } navbarSearch`}
+                className={`rounded-l-full cursor-text text-black ${theme === "light" ? "bg-slate-200" : "bg-gray-200"
+                  } navbarSearch`}
                 placeholder="search video..."
                 onKeyUp={searchEnter}
                 onChange={setCategory}
@@ -70,30 +69,21 @@ const UpperNavbar = () => {
                 className="flex justify-center items-center bg-slate-400 rounded-r-full cursor-pointer navbarSearchIcon"
                 onClick={searchResults}
               >
-                <i className="fa-solid fa-magnifying-glass fa-lg"></i>
+                <IoMdSearch className="text-2xl" />
               </div>
-              <i
-                className="fa-solid fa-microphone fa-lg cursor-pointer mx-3 hide"
-                title="Speak to Search"
-              ></i>
+              <FaMicrophone className="mx-3 hide text-2xl" />
             </div>
           </li>
 
           <li className="flex items-center justify-center mx-3">
             <div className="flex justify-center items-center">
-              <i
-                className="fa-solid fa-circle-plus fa-lg mx-2 cursor-pointer hide"
-                title="Create"
-              ></i>
-              <i
-                className="fa-solid fa-bell fa-lg mx-2 cursor-pointer hide"
-                title="Notifications"
-              ></i>
+              <IoIosAddCircle className="mx-2 cursor-pointer hide text-xl" />
+              <FaBell className="mx-2 cursor-pointer hide text-xl" />
               <div
                 className="w-8 h-8 rounded-full flex justify-center items-center mx-3 cursor-pointer"
                 title="Account"
               >
-                <img src="/images/user.png" alt="user" />
+                <img src="/images/user.png" className="h-full w-full" alt="user" />
               </div>
             </div>
           </li>

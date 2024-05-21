@@ -40,16 +40,15 @@ const VideoCard = (props) => {
         <div className="flex flex-col">
           <div className="w-full relative">
             <img
-              src={video?.thumbnail[0]?.url}
-              className="w-full rounded-xl object-cover mainpage-thumbnail cursor-pointer"
+              src={video?.thumbnail[1]?.url}
+              className="w-full rounded-xl object-cover mainpage-thumbnail cursor-pointer h-auto"
               onClick={Render}
               alt="logo"
             />
             <div className="text-white text-center absolute right-2 bottom-2">
               <h5
-                className={`${
-                  video.lengthText === "LIVE" ? "bg-red-600" : "bg-black"
-                } px-1  rounded-[7px] text-xs`}
+                className={`${video.lengthText === "LIVE" ? "bg-red-600" : "bg-black"
+                  } px-1  rounded-[7px] text-xs`}
               >
                 {video.isLive ? (
                   <p> • {video.lengthText}</p>
@@ -60,9 +59,8 @@ const VideoCard = (props) => {
             </div>
           </div>
           <div
-            className={`flex my-2 text-${
-              theme === "light" ? "black" : "white"
-            }`}
+            className={`flex my-2 text-${theme === "light" ? "black" : "white"
+              }`}
           >
             {video.channelThumbnail && (
               <img
@@ -85,7 +83,7 @@ const VideoCard = (props) => {
                   </h4>
                   <img
                     src="./images/verify.png"
-                    className="self-center mx-2 w-3"
+                    className="self-center mx-2 w-3 h-auto"
                     alt="verify"
                   />
                 </div>

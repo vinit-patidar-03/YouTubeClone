@@ -1,6 +1,11 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Context from '../context/Context';
+import { IoHomeSharp } from "react-icons/io5";
+import { FaPlay } from "react-icons/fa";
+import { FaFireAlt } from "react-icons/fa";
+import { IoDiamond } from "react-icons/io5";
+import { FaSun } from 'react-icons/fa6';
 
 const BottomNavbar = () => {
   const Navigate = useNavigate();
@@ -13,23 +18,23 @@ const BottomNavbar = () => {
           <ul className={`flex justify-evenly w-full text-${theme === 'light' ? 'black' : 'white'}`}>
 
             <li className='flex flex-col justify-center cursor-pointer' onClick={() => { Navigate('/') }} title='Home'>
-              <i className="fa-solid fa-house fa-lg my-2 "></i>
+              <IoHomeSharp className='my-2 text-xl' />
             </li>
 
             <li className='flex flex-col justify-center cursor-pointer' onClick={() => { Navigate(`shorts/:id/${cid}`) }} title='Shorts'>
-              <i className="fa-solid fa-play fa-lg my-2"></i>
+              <FaPlay className='my-2 text-xl' />
             </li>
 
             <li className='flex flex-col justify-center cursor-pointer' onClick={() => { Navigate('trending') }} title='Shorts'>
-              <i className="fa-solid fa-fire fa-lg my-2"></i>
+              <FaFireAlt className='my-2 text-xl' />
             </li>
 
             <li className='flex flex-col justify-center cursor-pointer' onClick={() => { Navigate('treasure') }} title='Shorts'>
-              <i className="fa-solid fa-gem fa-lg my-2"></i>
+              <IoDiamond className='my-2 text-xl' />
             </li>
 
             <li className="flex items-center cursor-pointer" onClick={() => { theme === 'light' ? setTheme('dark') : setTheme('light') }}>
-              <i className="fa-solid fa-sun fa-lg" title='Theme'></i>
+              <FaSun className='my-2 text-xl' />
             </li>
 
           </ul>
