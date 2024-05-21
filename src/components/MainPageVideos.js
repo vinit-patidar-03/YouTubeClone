@@ -10,8 +10,6 @@ const MainPageVideos = () => {
     setShortsCategory(selectCategory)
   })
 
-  console.log(mainpageVideos);
-
   return (
     <>
       <div className='flex flex-wrap justify-center relative mb-[50px]'>
