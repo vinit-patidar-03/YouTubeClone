@@ -4,6 +4,7 @@ import Context from "../context/Context";
 import ReactPlayer from "react-player";
 import { useLocation, useParams } from "react-router-dom";
 import { fetchData } from "../API/YoutubeAPI";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import Spinner from "../components/Spinner";
 
 const ShortVideos = () => {
@@ -49,69 +50,77 @@ const ShortVideos = () => {
       setShortNo(shorts.length - 1);
     }
   };
-  return (
-    <>
-      {shorts.length !== 0 ? (
-        <div className="flex justify-center items-center h-[100vh] relative">
-          <div className="relative flex justify-center items-center p-3 rounded-xl h-[calc(100vh-160px)] w-[calc(0.5625*(100vh-140px))]">
-            <div className=" w-full h-full shortPlayer">
-              <ReactPlayer
-                url={`https://www.youtube.com/watch?v=${shorts[shortNo].videoId}`}
-                playing={true}
-                loop={true}
-                width="100%"
-                height="100%"
-              />
-            </div>
-            <div className=" absolute mx-2 flex justify-between w-[95%]">
-              <div
-                className="rounded-full mr-3 cursor-pointer"
-                onClick={() => {
-                  changeShortPage("decr");
-                }}
-              >
-                <i className="fa-sharp fa-solid fa-arrow-right fa-flip-horizontal fa-2xl text-white py-4 px-1"></i>
-              </div>
-              <div
-                className="rounded-full ml-3 cursor-pointer "
-                onClick={() => {
-                  changeShortPage("incr");
-                }}
-              >
-                <i className="fa-sharp fa-solid fa-arrow-right fa-2xl text-white py-4 px-1"></i>
-              </div>
-            </div>
-            <div className="absolute bottom-5 shortDetails ml-3 w-[95%]">
-              <p className="text-white font-bold text-sm">
-                {shorts[shortNo].title}
-              </p>
-              <p className="text-white text-xs">
-                {shorts[shortNo].viewCountText}
-              </p>
-            </div>
-          </div>
-        </div>
-      ) :
-        loading ? <Spinner /> : <h1 className=" mt-20 font-bold text-lg text-center">No Shorts Posted</h1>
-      }
 
-      {id !== ":id" && (
-        <div className="flex justify-center items-center h-[100vh] relative">
-          <div className="relative flex justify-center items-center p-3 rounded-xl h-[calc(100vh-160px)] w-[calc(0.5625*(100vh-140px))]">
-            <div className=" w-full h-full shortPlayer">
-              <ReactPlayer
-                url={`https://www.youtube.com/watch?v=${id}}`}
-                playing={true}
-                loop={true}
-                width="100%"
-                height="100%"
-              />
+  if (id !== ":id") {
+    return (
+      <>
+        {id !== ":id" && (
+          <div className="flex justify-center items-center h-[100vh] relative">
+            <div className="relative flex justify-center items-center p-3 rounded-xl h-[calc(100vh-160px)] w-[calc(0.5625*(100vh-140px))]">
+              <div className=" w-full h-full shortPlayer">
+                <ReactPlayer
+                  url={`https://www.youtube.com/watch?v=${id}}`}
+                  playing={true}
+                  loop={true}
+                  width="100%"
+                  height="100%"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </>
-  );
+        )}
+      </>
+    )
+  }
+  else {
+    return (
+      <>
+        {shorts.length !== 0 ? (
+          <div className="flex justify-center items-center h-[100vh] relative">
+            <div className="relative flex justify-center items-center p-3 rounded-xl h-[calc(100vh-160px)] w-[calc(0.5625*(100vh-140px))]">
+              <div className=" w-full h-full shortPlayer">
+                <ReactPlayer
+                  url={`https://www.youtube.com/watch?v=${shorts[shortNo].videoId}`}
+                  playing={true}
+                  loop={true}
+                  width="100%"
+                  height="100%"
+                />
+              </div>
+              <div className=" absolute mx-2 flex justify-between w-[95%]">
+                <div
+                  className="rounded-full mr-3 cursor-pointer text-white py-4 px-1 text-2xl"
+                  onClick={() => {
+                    changeShortPage("decr");
+                  }}
+                >
+                  <FaArrowCircleLeft />
+                </div>
+                <div
+                  className="rounded-full ml-3 cursor-pointer text-white py-4 px-1 text-2xl"
+                  onClick={() => {
+                    changeShortPage("incr");
+                  }}
+                >
+                  <FaArrowCircleRight />
+                </div>
+              </div>
+              <div className="absolute bottom-5 shortDetails ml-3 w-[95%]">
+                <p className="text-white font-bold text-sm">
+                  {shorts[shortNo].title}
+                </p>
+                <p className="text-white text-xs">
+                  {shorts[shortNo].viewCountText}
+                </p>
+              </div>
+            </div>
+          </div>
+        ) :
+          loading ? <Spinner /> : <h1 className=" mt-20 font-bold text-lg text-center">No Shorts Posted</h1>
+        }
+      </>
+    )
+  }
 };
 
 export default ShortVideos;
