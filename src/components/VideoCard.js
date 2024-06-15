@@ -40,7 +40,7 @@ const VideoCard = (props) => {
         <div className="flex flex-col">
           <div className="w-full relative">
             <img
-              src={video?.thumbnail[1]?.url}
+              src={video?.thumbnail[1]?.url || 'images/images.png'}
               className="w-full rounded-xl object-cover mainpage-thumbnail cursor-pointer h-auto"
               onClick={Render}
               alt="logo"
@@ -59,7 +59,7 @@ const VideoCard = (props) => {
             </div>
           </div>
           <div
-            className={`flex my-2 text-${theme === "light" ? "black" : "white"
+            className={`flex my-2 px-2 text-${theme === "light" ? "black" : "white"
               }`}
           >
             {video.channelThumbnail && (

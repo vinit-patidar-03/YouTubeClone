@@ -12,6 +12,7 @@ const ShortVideos = () => {
   const { shortscategory } = useContext(Context);
   const [shorts, setShorts] = useState("");
   const [shortNo, setShortNo] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchshortsData();
@@ -32,6 +33,9 @@ const ShortVideos = () => {
         setShorts(res.data.data);
       });
     }
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000)
   };
 
   const changeShortPage = (e) => {
@@ -87,9 +91,9 @@ const ShortVideos = () => {
             </div>
           </div>
         </div>
-      ) : (
-        <Spinner />
-      )}
+      ) :
+        loading ? <Spinner /> : <h1 className=" mt-20 font-bold text-lg text-center">No Shorts Posted</h1>
+      }
 
       {id !== ":id" && (
         <div className="flex justify-center items-center h-[100vh] relative">

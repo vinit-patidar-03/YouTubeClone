@@ -18,8 +18,11 @@ const AppContext = (props) => {
   useEffect(() => {
     fetchDataforSelectedCategory(selectCategory);
     setShortsCategory(selectCategory);
+  }, [selectCategory])
+
+  useEffect(() => {
     themeChanger(theme);
-  }, [selectCategory, theme])
+  }, [theme])
 
   const themeChanger = (color) => {
     if (theme === 'light') {
