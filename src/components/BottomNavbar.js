@@ -4,7 +4,6 @@ import Context from '../context/Context';
 import { IoHomeSharp } from "react-icons/io5";
 import { FaPlay } from "react-icons/fa";
 import { FaFireAlt } from "react-icons/fa";
-import { IoDiamond } from "react-icons/io5";
 import { FaSun } from 'react-icons/fa6';
 
 const BottomNavbar = () => {
