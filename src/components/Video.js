@@ -54,7 +54,7 @@ const Video = () => {
     <>
       {videodetail.length !== 0 && channel ? (
         <div
-          className={`flex flex-col relative w-full mt-[60px] lg:mt-0 lg:mx-2 lg:w-[calc(70%-1rem)] lg:h-[calc(100vh-110px)] md:w-[100vw] md:h-[90vh] h-[70vh] bg-${theme === "light" ? "white" : "black"
+          className={`flex flex-col relative w-full mt-[60px] lg:mt-0 lg:mx-2 lg:w-[calc(70%-1rem)] lg:h-[calc(100vh-110px)] md:w-[100vw] md:h-[90vh] h-[50vh] sm:h-[70vh] bg-${theme === "light" ? "white" : "black"
             } text-${theme === "light" ? "black" : "white"}`}
         >
           <div className="w-full h-full">
@@ -84,7 +84,7 @@ const Video = () => {
               <h4 className="flex font-bold ml-2 cursor-pointer">
                 {videodetail.channelTitle}{" "}
                 <img
-                  src="/images/verify.png"
+                  src="/images/verify.webp"
                   width="20px"
                   className="self-center mx-2"
                   alt="verify"
