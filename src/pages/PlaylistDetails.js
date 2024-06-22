@@ -36,8 +36,8 @@ const PlaylistDetails = (props) => {
                 <div className="w-full md:w-[50%] lg:w-[30%] relative">
                   <img
                     src={
-                      channelPlaylistsVideos.meta.thumbnail[3].url ||
-                      channelPlaylistsVideos.meta.thumbnail[0].url
+                      channelPlaylistsVideos?.meta?.thumbnail[3]?.url ||
+                      channelPlaylistsVideos?.meta?.thumbnail[0]?.url
                     }
                     className=" w-full"
                     alt="thumbnail"

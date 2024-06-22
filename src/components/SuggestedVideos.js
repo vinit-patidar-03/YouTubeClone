@@ -23,7 +23,7 @@ const SuggestVideo = ({ setLoading }) => {
 
   return (
     <>
-      <div className="relative flex-col sm:flex-row sm:flex sm:flex-wrap sm:gap-2 sm:mx-2 lg:h-[calc(100vh-110px)] mt-[60px] lg:w-[calc(30%-0.5rem)] lg:mr-2 overflow-scroll scroll-track mt-0">
+      <div className="relative flex-col sm:flex-row sm:flex sm:flex-wrap sm:gap-2 sm:mx-2 lg:h-[calc(100vh-110px)] lg:mt-[60px] lg:w-[calc(30%-0.5rem)] lg:mr-2 overflow-scroll scroll-track mt-0">
         {related.length !== 0 &&
           related.map((elem, index) => {
             if (elem.type !== "video") {

@@ -47,12 +47,12 @@ const ChannelDetails = () => {
     if (
       event === "incr" &&
       videopage !==
-        channel.data.filter((elem) => {
-          return (
-            elem.type === "video_listing" && elem.title.split(" ")[1] !== "live"
-          );
-        }).length -
-          1 &&
+      channel.data.filter((elem) => {
+        return (
+          elem.type === "video_listing" && elem.title.split(" ")[1] !== "live"
+        );
+      }).length -
+      1 &&
       type === "video"
     ) {
       setVideoPage(videopage + 1);
@@ -110,7 +110,7 @@ const ChannelDetails = () => {
               <div className="flex items-center">
                 <h3 className="font-bold">{channel.meta.title}</h3>
                 <img
-                  src="/images/verify.png"
+                  src="/images/verify.webp"
                   className="w-5 ml-2"
                   alt="verify"
                 />
@@ -133,18 +133,16 @@ const ChannelDetails = () => {
               <li className="cursor-pointer font-semibold">
                 <button
                   onClick={() => setActive("#Live")}
-                  className={`${
-                    active === "#Live" ? "underline underline-offset-4" : ""
-                  }`}
+                  className={`${active === "#Live" ? "underline underline-offset-4" : ""
+                    }`}
                 >
                   Live
                 </button>
               </li>
               <li className="cursor-pointer font-semibold">
                 <button
-                  className={`${
-                    active === "#Videos" ? "underline underline-offset-4" : ""
-                  }`}
+                  className={`${active === "#Videos" ? "underline underline-offset-4" : ""
+                    }`}
                   onClick={() => setActive("#Videos")}
                 >
                   Videos
@@ -152,9 +150,8 @@ const ChannelDetails = () => {
               </li>
               <li className="cursor-pointer font-semibold">
                 <button
-                  className={`${
-                    active === "#Playlist" ? "underline underline-offset-4" : ""
-                  }`}
+                  className={`${active === "#Playlist" ? "underline underline-offset-4" : ""
+                    }`}
                   onClick={() => setActive("#Playlist")}
                 >
                   Playlists
@@ -162,9 +159,8 @@ const ChannelDetails = () => {
               </li>
               <li className="cursor-pointer font-semibold">
                 <button
-                  className={`${
-                    active === "#Shorts" ? "underline underline-offset-4" : ""
-                  }`}
+                  className={`${active === "#Shorts" ? "underline underline-offset-4" : ""
+                    }`}
                   onClick={() => setActive("#Shorts")}
                 >
                   Shorts
@@ -172,9 +168,8 @@ const ChannelDetails = () => {
               </li>
               <li className="cursor-pointer font-semibold">
                 <button
-                  className={`${
-                    active === "#Channels" ? "underline underline-offset-4" : ""
-                  }`}
+                  className={`${active === "#Channels" ? "underline underline-offset-4" : ""
+                    }`}
                   onClick={() => setActive("#Channels")}
                 >
                   Channels
@@ -215,18 +210,17 @@ const ChannelDetails = () => {
                     elem.title.split(" ")[1] === "live"
                   );
                 }).length === 0 && (
-                  <h1 className="text-center text-xl w-[100vw] font-semibold">
-                    No Live Videos
-                  </h1>
-                )}
+                    <h1 className="text-center text-xl w-[100vw] font-semibold">
+                      No Live Videos
+                    </h1>
+                  )}
               </div>
             </section>
 
             <section
               id="Videos"
-              className={` absolute top-0 py-[60px] ${
-                active === "#Videos" ? "block" : "hidden"
-              }`}
+              className={` absolute top-0 ${active === "#Videos" ? "block" : "hidden"
+                }`}
             >
               <div className="flex flex-wrap justify-center my-5">
                 {channelVideos.length !== 0 &&
@@ -243,9 +237,8 @@ const ChannelDetails = () => {
 
             <section
               id="Playlist"
-              className={` absolute top-0 py-[60px] ${
-                active === "#Playlist" ? "block" : "hidden"
-              }`}
+              className={` absolute top-0 ${active === "#Playlist" ? "block" : "hidden"
+                }`}
             >
               {playlist.length === 0 && (
                 <h1 className="text-center text-xl w-[100vw] font-semibold">
@@ -253,15 +246,15 @@ const ChannelDetails = () => {
                 </h1>
               )}
               {playlist.length !== 0 &&
-              playlist[playlistpage].type === "playlist_listing" ? (
+                playlist[playlistpage].type === "playlist_listing" ? (
                 <div>
                   <div className="flex flex-wrap justify-center my-5">
                     {playlist[playlistpage].type === "playlist_listing"
                       ? playlist[playlistpage].data.map((elem, index) => {
-                          return (
-                            <PlaylistCard video={elem} key={index} cid={cid} />
-                          );
-                        })
+                        return (
+                          <PlaylistCard video={elem} key={index} cid={cid} />
+                        );
+                      })
                       : ""}
                   </div>
 
@@ -270,9 +263,8 @@ const ChannelDetails = () => {
                       onClick={() => {
                         ChangePage("decr", "playlist");
                       }}
-                      className={`py-2 px-5 text-${
-                        theme === " light" ? "black" : "white"
-                      } rounded-full font-semibold`}
+                      className={`py-2 px-5 text-${theme === " light" ? "black" : "white"
+                        } rounded-full font-semibold`}
                     >
                       <GrFormPrevious />
                     </button>
@@ -280,9 +272,8 @@ const ChannelDetails = () => {
                       onClick={() => {
                         ChangePage("incr", "playlist");
                       }}
-                      className={`py-2 px-5 text-${
-                        theme === " light" ? "black" : "white"
-                      } rounded-full font-semibold`}
+                      className={`py-2 px-5 text-${theme === " light" ? "black" : "white"
+                        } rounded-full font-semibold`}
                     >
                       <GrFormNext />
                     </button>
@@ -302,9 +293,8 @@ const ChannelDetails = () => {
 
             <section
               id="Shorts"
-              className={` absolute top-0 py-[60px] ${
-                active === "#Shorts" ? "block" : "hidden"
-              }`}
+              className={` absolute top-0 ${active === "#Shorts" ? "block" : "hidden"
+                }`}
             >
               <div className="flex flex-wrap justify-center my-5">
                 {channel.data.filter((elem) => {
@@ -320,21 +310,20 @@ const ChannelDetails = () => {
                 {channel.data.filter((elem) => {
                   return elem.type === "shorts_listing";
                 }).length === 0 && (
-                  <h1 className="text-center text-xl w-[100vw] font-semibold">
-                    No Shorts Posted
-                  </h1>
-                )}
+                    <h1 className="text-center text-xl w-[100vw] font-semibold">
+                      No Shorts Posted
+                    </h1>
+                  )}
               </div>
             </section>
 
             <section
               id="Channels"
-              className={` absolute top-0 py-[60px] ${
-                active === "#Channels" ? "block" : "hidden"
-              }`}
+              className={` absolute top-0 ${active === "#Channels" ? "block" : "hidden"
+                }`}
             >
               <div>
-                <div className="flex justify-center flex-wrap">
+                <div className="flex justify-center flex-wrap my-5">
                   {channel.data.filter((elem) => {
                     return elem.type === "channel_listing";
                   }).length !== 0 &&
@@ -348,19 +337,18 @@ const ChannelDetails = () => {
                   {channel.data.filter((elem) => {
                     return elem.type === "channel_listing";
                   }).length === 0 && (
-                    <h1 className="text-center text-xl w-[100vw] font-semibold">
-                      No Other Channel
-                    </h1>
-                  )}
+                      <h1 className="text-center text-xl w-[100vw] font-semibold">
+                        No Other Channel
+                      </h1>
+                    )}
                 </div>
                 <div></div>
               </div>
             </section>
           </main>
           <div
-            className={`fixed right-[10px] bottom-[50px] cursor-pointer flex justify-center items-center rounded-full w-10 h-10 bg-${
-              theme === "light" ? "white" : "black"
-            }`}
+            className={`fixed right-[10px] bottom-[50px] cursor-pointer flex justify-center items-center rounded-full w-10 h-10 bg-${theme === "light" ? "white" : "black"
+              }`}
             onClick={moveTotop}
           >
             <i className="fa-solid fa-arrow-up fa-xl"></i>

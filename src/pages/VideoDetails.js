@@ -21,7 +21,7 @@ const VideoDetails = () => {
     });
   };
   return (
-    <div className="flex relative lg:h-[100vh] flex-col sm:items-center lg:flex-row mb-[50px] lg:mb-0">
+    <div className="flex relative lg:h-[100vh] flex-col sm:items-center md:items-start lg:flex-row mb-[50px] lg:mb-0">
       <Video />
       <SuggestVideo setLoading={setLoading} />
       <div

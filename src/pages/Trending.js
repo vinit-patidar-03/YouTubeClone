@@ -4,6 +4,8 @@ import VideoCard from '../components/VideoCard';
 import ShortsCard from '../components/ShortsCard';
 import Context from '../context/Context';
 import Spinner from '../components/Spinner';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { FaArrowCircleLeft, FaArrowCircleRight, FaArrowUp } from 'react-icons/fa';
 
 const Trending = () => {
 
@@ -42,19 +44,19 @@ const Trending = () => {
     return (
         <>
             {trendingvideos &&
-                <div className='mt-[60px] mb-[50px]'>
+                <div className='mt-[60px] mb-[50px] sm:px-2'>
 
                     <div className={`my-3 text-${theme === 'light' ? 'black' : 'white'}`}>
                         <ul className='flex justify-evenly'>
-                            <li className='font-semibold'><a href="#Recent">Recent Trendings</a></li>
-                            <li className='font-semibold'><a href="#TrendV">Trendings</a></li>
-                            <li className='font-semibold'><a href="#TrendS">Trending shorts</a></li>
+                            <li className='font-semibold'><AnchorLink href="#Recent">Recent Trendings</AnchorLink></li>
+                            <li className='font-semibold'><AnchorLink href="#TrendV">Trendings</AnchorLink></li>
+                            <li className='font-semibold'><AnchorLink href="#TrendS">Trending shorts</AnchorLink></li>
                         </ul>
                     </div>
                     <hr />
-                    {trendingvideos && <section className='flex flex-col py-[60px] items-center' id='Recent'>
+                    {trendingvideos && <section className='flex flex-col pt-[60px] items-center' id='Recent'>
                         <h1 className={`font-bold text-${theme === 'light' ? 'black' : 'white'} mb-5`}>Recently Trending Videos</h1>
-                        <div className='flex flex-wrap justify-center'>
+                        <div className='flex flex-wrap gap-2'>
                             {trendingvideos.filter((elem) => { return elem.type === 'video_listing' })[page] &&
                                 trendingvideos.filter((elem) => { return elem.type === 'video_listing' })[page].data.map((elem, index) => {
                                     return <VideoCard video={elem} key={index} />
@@ -62,15 +64,15 @@ const Trending = () => {
                             }
                         </div>
                         <div className='w-full flex justify-evenly'>
-                            <button onClick={() => { ChangePage('decr') }} className='py-2 px-5 bg-black text-white rounded-full font-semibold'>Previous</button>
-                            <button onClick={() => { ChangePage('incr') }} className='py-2 px-5 bg-black text-white rounded-full font-semibold'>Next</button>
+                            <button onClick={() => { ChangePage('decr') }} className='py-2 px-5 bg-black text-white rounded-full font-semibold'><FaArrowCircleLeft /></button>
+                            <button onClick={() => { ChangePage('incr') }} className='py-2 px-5 bg-black text-white rounded-full font-semibold'><FaArrowCircleRight /></button>
                         </div>
                     </section>
                     }
                     <hr className='my-2' />
-                    {trendingvideos && <section className='flex flex-col py-[60px] items-center' id='TrendV'>
+                    {trendingvideos && <section className='flex flex-col pt-[60px] items-center' id='TrendV'>
                         <h1 className={`font-bold text-${theme === 'light' ? 'black' : 'white'} mb-5`}>Trending Videos</h1>
-                        <div className='flex flex-wrap justify-center'>
+                        <div className='flex flex-wrap gap-2'>
                             {
                                 trendingvideos.map((elem, index) => {
                                     if (elem.type !== 'video') {
@@ -85,7 +87,7 @@ const Trending = () => {
 
                     <hr />
 
-                    {trendingvideos && <section className='flex flex-col py-[60px] items-center' id='TrendS'>
+                    {trendingvideos && <section className='flex flex-col pt-[60px] items-center' id='TrendS'>
                         <h1 className={`font-bold text-${theme === 'light' ? 'black' : 'white'} mb-5`}>Trending Shorts</h1>
                         <div className='flex flex-wrap justify-center'>
                             {
@@ -97,6 +99,7 @@ const Trending = () => {
                     </section>}
                     <div className={`fixed right-[10px] bottom-[55px] cursor-pointer flex justify-center items-center rounded-full w-10 h-10 bg-${theme === 'light' ? 'white' : 'black'}`} onClick={moveTotop}>
                         <i className={`fa-solid fa-arrow-up fa-lg text-${theme === 'light' ? 'black' : 'white'}`}></i>
+                        <FaArrowUp className={`text-xl text-${theme === 'light' ? 'black' : 'white'}`} />
                     </div>
                 </div>
             }

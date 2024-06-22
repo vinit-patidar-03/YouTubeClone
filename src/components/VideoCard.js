@@ -36,12 +36,12 @@ const VideoCard = (props) => {
 
   return (
     <>
-      <div className="sm:mx-2 sm:my-4 w-full md:w-[350px] lg:w-[330px]">
+      <div className="lg:w-[calc(25%-0.375rem)] md:w-[calc(33.33%-0.333rem)] sm:w-[calc(50%-0.25rem)] w-full">
         <div className="flex flex-col">
           <div className="w-full relative">
             <img
               src={video?.thumbnail[1]?.url || 'images/images.webp'}
-              className="w-full md:h-[200px] sm:h-[400px] h-[200px] sm:rounded-xl object-cover object-center cursor-pointer"
+              className="w-full sm:rounded-xl object-cover object-center cursor-pointer"
               onClick={Render}
               alt="logo"
             />
@@ -65,16 +65,16 @@ const VideoCard = (props) => {
             {video.channelThumbnail && (
               <img
                 src={video.channelThumbnail[0].url}
-                className="rounded-full self-start mainpage-channelThumbnail"
+                className="rounded-full self-start w-[40px]"
                 alt=""
               />
             )}
             <div className="mx-3">
-              <h4 className="leading-5 font-bold text-sm mainpage-title">
+              <h4 className="leading-5 font-bold text-sm">
                 {video?.title}
               </h4>
               <div className="my-1 text-gray-00">
-                <div className="flex sm:text-xs mainpage-channelTitle">
+                <div className="flex sm:text-xs">
                   <h4
                     className="font-semibold cursor-pointer"
                     onClick={gotoChannel}
@@ -91,7 +91,7 @@ const VideoCard = (props) => {
                   {video.isLive ? (
                     <img src="/images/live.webp" className="w-4" alt="live" />
                   ) : (
-                    <h4 className="mainpage-channelTitle sm:text-xs">
+                    <h4 className="sm:text-xs">
                       {ViewConverter(video.viewCount)} •{" "}
                       {video.publishedTimeText}{" "}
                     </h4>

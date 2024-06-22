@@ -58,7 +58,7 @@ const UpperNavbar = () => {
                 name="search"
                 id="search"
                 className={`rounded-l-full cursor-text text-black ${theme === "light" ? "bg-slate-200" : "bg-gray-200"
-                  } navbarSearch`}
+                  } lg:w-[600px] md:w-[400px] sm:w-[300px] w-[150px] px-[20px] py-[5px]`}
                 placeholder="search video..."
                 onKeyUp={searchEnter}
                 onChange={setCategory}
@@ -67,19 +67,19 @@ const UpperNavbar = () => {
               />
               <div
                 id="serchButton"
-                className="flex justify-center items-center bg-slate-400 rounded-r-full cursor-pointer navbarSearchIcon"
+                className="flex justify-center items-center w-[40px] h-[35px] bg-slate-400 rounded-r-full cursor-pointer"
                 onClick={searchResults}
               >
                 <IoMdSearch className="text-2xl" />
               </div>
-              <FaMicrophone className="mx-3 hide text-2xl" />
+              <FaMicrophone className="mx-3 sm:block hidden text-2xl" />
             </div>
           </li>
 
           <li className="flex items-center justify-center mx-3">
             <div className="flex justify-center items-center">
-              <IoIosAddCircle className="mx-2 cursor-pointer hide text-xl" />
-              <FaBell className="mx-2 cursor-pointer hide text-xl" />
+              <IoIosAddCircle className="mx-2 cursor-pointer sm:block hidden text-xl" />
+              <FaBell className="mx-2 cursor-pointer sm:block hidden text-xl" />
               <div
                 className="w-8 h-8 rounded-full flex justify-center items-center mx-3 cursor-pointer"
                 title="Account"

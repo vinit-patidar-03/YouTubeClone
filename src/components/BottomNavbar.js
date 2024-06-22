@@ -29,10 +29,6 @@ const BottomNavbar = () => {
               <FaFireAlt className='my-2 text-xl' />
             </li>
 
-            <li className='flex flex-col justify-center cursor-pointer' onClick={() => { Navigate('treasure') }} title='Shorts'>
-              <IoDiamond className='my-2 text-xl' />
-            </li>
-
             <li className="flex items-center cursor-pointer" onClick={() => { theme === 'light' ? setTheme('dark') : setTheme('light') }}>
               <FaSun className='my-2 text-xl' />
             </li>

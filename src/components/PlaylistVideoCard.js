@@ -11,22 +11,20 @@ const PlaylistVideoCard = (props) => {
   return (
     <>
       <div
-        className={`flex flex-col w-[95%] md:w-[30%] m-3 text-${
-          theme === "light" ? "black" : "white"
-        }`}
+        className={`flex flex-col w-[95%] md:w-[30%] m-3 text-${theme === "light" ? "black" : "white"
+          }`}
       >
         <div className="w-full relative">
           <img
             src={video?.thumbnail[2]?.url || video?.thumbnail[0]?.url}
             onClick={Render}
-            className="w-full rounded-xl object-cover mainpage-thumbnail cursor-pointer"
+            className="w-full rounded-xl object-cover cursor-pointer"
             alt="logo"
           />
           <div className="text-white text-center absolute right-2 bottom-2">
             <h5
-              className={`${
-                video.lengthText === "LIVE" ? "bg-red-600" : "bg-black"
-              } px-1  rounded-[7px] text-xs`}
+              className={`${video.lengthText === "LIVE" ? "bg-red-600" : "bg-black"
+                } px-1  rounded-[7px] text-xs`}
             >
               {video.isLive ? (
                 <p> • {video.lengthText}</p>
@@ -38,14 +36,14 @@ const PlaylistVideoCard = (props) => {
         </div>
         <div className="flex my-2">
           <div>
-            <h4 className="leading-5 font-bold text-xs mainpage-title">
+            <h4 className="leading-5 font-bold text-xs">
               {video?.title}
             </h4>
             <div className="my-1 text-gray-00">
-              <div className="flex sm:text-xs mainpage-channelTitle">
+              <div className="flex sm:text-xs">
                 <h4 className="font-semibold">{video.channelTitle} </h4>
                 <img
-                  src="/images/verify.png"
+                  src="/images/verify.webp"
                   className="self-center mx-2 w-3"
                   alt="verify"
                 />
@@ -54,7 +52,7 @@ const PlaylistVideoCard = (props) => {
                 {video.isLive ? (
                   <img src="/images/live.png" className="w-4" alt="live" />
                 ) : (
-                  <h4 className="mainpage-channelTitle sm:text-xs">
+                  <h4 className="sm:text-xs">
                     {video.viewCountText} • {video.publishedTimeText}{" "}
                   </h4>
                 )}

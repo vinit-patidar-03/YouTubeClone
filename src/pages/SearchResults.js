@@ -29,7 +29,7 @@ const SearchResults = () => {
 
     return (
         <>{
-            <div className='flex flex-col items-center w-[calc(100vw-83px)] top-[100px] p-3 left-[65px] relative searchresultpage mb-[120px]'>
+            <div className='flex flex-col items-center mt-[60px] sm:p-3 relative mb-[50px]'>
                 {
                     searchResult &&
                     searchResult.map((elem, index) => {
