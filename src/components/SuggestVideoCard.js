@@ -32,23 +32,21 @@ const SuggestVideoCard = (props) => {
   return (
     <>
       <div
-        className={`suggestVideoCard text-${
-          theme === "light" ? "black" : "white"
-        }`}
+        className={`sm:w-[calc(50%-0.25rem)] lg:w-[100%] text-${theme === "light" ? "black" : "white"
+          }`}
       >
-        <div className="flex mb-5 suggestCardBody">
+        <div className="flex flex-col mb-5">
           <div className="thumb relative">
             <img
               src={video?.thumbnail[1]?.url}
-              className="rounded-xl cursor-pointer h-full suggestVideoThumbnail"
+              className="sm:rounded-xl cursor-pointer w-full"
               onClick={Render}
               alt="logo"
             />
             <div className="text-white text-center absolute right-2 bottom-2">
               <h5
-                className={`${
-                  video.lengthText === "LIVE" ? "bg-red-600" : "bg-black"
-                } px-1  rounded-[7px] text-xs`}
+                className={`${video.lengthText === "LIVE" ? "bg-red-600" : "bg-black"
+                  } px-1  rounded-[7px] text-xs`}
               >
                 {video.isLive ? (
                   <p> • {video.lengthText}</p>
@@ -60,17 +58,14 @@ const SuggestVideoCard = (props) => {
           </div>
 
           <div className="mx-3">
-            <h4 className="leading-4 mt-2 font-semibold text-[10px] suggestVideoTitle">
+            <h4 className="leading-4 mt-2 font-semibold text-[10px]">
               {video?.title}
             </h4>
-            <h4 className="leading-4 mt-2 font-semibold text-[10px] suggestVideoTitle1">
-              {video?.title}
-            </h4>
-            <div className="suggestvideoDetail">
-              <div className="flex items-center suggestVideoChannelTitle">
-                <h5>{video?.channelTitle} </h5>
+            <div className="hidden lg:block">
+              <div className="flex items-center">
+                <h5 className="text-xs">{video?.channelTitle} </h5>
                 <img
-                  src="/images/verify.png"
+                  src="/images/verify.webp"
                   className="self-center mx-2 w-3"
                   alt="verify"
                 />
@@ -78,7 +73,7 @@ const SuggestVideoCard = (props) => {
               {video.isLive ? (
                 <h6 className="flex items-center text-xs my-2">
                   <img
-                    src="/images/live.png"
+                    src="/images/live.webp"
                     width="20px"
                     className="mr-2"
                     alt="live"
@@ -86,17 +81,16 @@ const SuggestVideoCard = (props) => {
                 </h6>
               ) : (
                 <h6
-                  className={`${
-                    theme === "light" ? "text-gray-500" : "text-gray-200"
-                  } text-[10px] my-1 suggestVideoCount`}
+                  className={`${theme === "light" ? "text-gray-500" : "text-gray-200"
+                    } text-[10px] my-1 suggestVideoCount`}
                 >
                   {ViewConverter(video?.viewCount)} views •{" "}
                   {video?.publishedTimeText}
                 </h6>
               )}
             </div>
-            <div className="suggestvideoDetail1">
-              <div className="flex items-center my-3 text-xs searchResultChannelTitle">
+            <div className="lg:hidden">
+              <div className="flex items-center text-xs">
                 {video.channelThumbnail.length !== 0 && (
                   <img
                     src={video.channelThumbnail[0].url}
@@ -107,14 +101,14 @@ const SuggestVideoCard = (props) => {
                 )}
                 {video?.channelTitle}{" "}
                 <img
-                  src="/images/verify.png"
+                  src="/images/verify.webp"
                   className="self-center mx-2 w-3"
                   alt="verify"
                 />
                 {video.isLive && (
                   <div className="flex items-center text-sm my-2">
                     <img
-                      src="/images/live.png"
+                      src="/images/live.webp"
                       width="20px"
                       className="mr-2"
                       alt="live"
@@ -122,9 +116,8 @@ const SuggestVideoCard = (props) => {
                   </div>
                 )}
                 <p
-                  className={`text-[10px] my-2 ${
-                    theme === "light" ? "text-gray-500" : "text-gray-200"
-                  }`}
+                  className={`text-[10px] my-2 ${theme === "light" ? "text-gray-500" : "text-gray-200"
+                    }`}
                 >
                   {ViewConverter(video?.viewCount)} views •{" "}
                   {video?.publishedTimeText}

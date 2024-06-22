@@ -54,11 +54,10 @@ const Video = () => {
     <>
       {videodetail.length !== 0 && channel ? (
         <div
-          className={`flex flex-col relative Video bg-${
-            theme === "light" ? "white" : "black"
-          } text-${theme === "light" ? "black" : "white"}`}
+          className={`flex flex-col relative w-full mt-[60px] lg:mt-0 lg:mx-2 lg:w-[calc(70%-1rem)] lg:h-[calc(100vh-110px)] md:w-[100vw] md:h-[90vh] h-[70vh] bg-${theme === "light" ? "white" : "black"
+            } text-${theme === "light" ? "black" : "white"}`}
         >
-          <div className="playedVideo">
+          <div className="w-full h-full">
             <ReactPlayer
               url={`https://www.youtube.com/watch?v=${id}`}
               playing={true}
@@ -67,10 +66,10 @@ const Video = () => {
               controls
             />
           </div>
-          <h1 className="text-lg font-semibold mt-2 videoTitle">
+          <h1 className="md:text-lg text-sm font-semibold mt-2 ml-2">
             {videodetail.title}
           </h1>
-          <div className="flex mt-2 relative items-center videoChannelDetail">
+          <div className="flex mt-2 relative items-center ml-2">
             <img
               src={channel.meta.avatar[0].url}
               width="40px"
@@ -82,7 +81,7 @@ const Video = () => {
                 gotoChannel();
               }}
             >
-              <h4 className="flex font-bold ml-2 videoChannelTitle cursor-pointer">
+              <h4 className="flex font-bold ml-2 cursor-pointer">
                 {videodetail.channelTitle}{" "}
                 <img
                   src="/images/verify.png"
@@ -93,24 +92,23 @@ const Video = () => {
               </h4>
               <div className="flex">
                 {channel.meta.subscriberCountText ? (
-                  <h1 className="ml-2 text-sm videoSubCount">
+                  <h1 className="ml-2 text-sm">
                     {channel.meta.subscriberCountText} subscribers
                   </h1>
                 ) : (
                   " "
                 )}
-                <h4 className="text-sm ml-2 videoSubCount">
+                <h4 className="text-sm ml-2">
                   {ViewConverter(videodetail.viewCount)} views
                 </h4>
               </div>
-              <h4 className="text-sm ml-2 videoSubCount">
+              <h4 className="text-sm ml-2">
                 {ViewConverter(videodetail.likeCount)} likes
               </h4>
             </div>
             <button
-              className={`bg-${theme === "light" ? "black" : "white"}  ${
-                theme === "light" ? "text-white" : "text-black"
-              } py-1 font-bold ml-5 px-4 rounded-full cursor-pointer`}
+              className={`bg-${theme === "light" ? "black" : "white"}  ${theme === "light" ? "text-white" : "text-black"
+                } py-1 font-bold ml-5 px-4 rounded-full cursor-pointer`}
             >
               Subscribe
             </button>

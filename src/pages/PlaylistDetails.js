@@ -26,13 +26,11 @@ const PlaylistDetails = (props) => {
           <div className="flex justify-center">
             {channelPlaylistsVideos && (
               <div
-                className={`mt-[80px] rounded-lg w-[95%] m-3 flex flex-wrap md:flex-nowrap text-${
-                  theme === "light" ? "black" : "white"
-                }`}
+                className={`mt-[80px] rounded-lg w-[95%] m-3 flex flex-wrap md:flex-nowrap text-${theme === "light" ? "black" : "white"
+                  }`}
                 style={{
-                  backgroundColor: `${
-                    theme === "light" ? "#FFFBF5" : "#141414"
-                  }`,
+                  backgroundColor: `${theme === "light" ? "#FFFBF5" : "#141414"
+                    }`,
                 }}
               >
                 <div className="w-full md:w-[50%] lg:w-[30%] relative">
@@ -46,7 +44,7 @@ const PlaylistDetails = (props) => {
                   />
                   <div className="absolute right-2 bottom-2">
                     <img
-                      src="/images/playlist.png"
+                      src="/images/playlist.webp"
                       className="w-7"
                       alt="playlist"
                     />

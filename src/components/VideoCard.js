@@ -36,12 +36,12 @@ const VideoCard = (props) => {
 
   return (
     <>
-      <div className="mx-2 my-4 w-[330px] mainpage-Card">
+      <div className="sm:mx-2 sm:my-4 w-full md:w-[350px] lg:w-[330px]">
         <div className="flex flex-col">
           <div className="w-full relative">
             <img
-              src={video?.thumbnail[1]?.url || 'images/images.png'}
-              className="w-full rounded-xl object-cover mainpage-thumbnail cursor-pointer h-auto"
+              src={video?.thumbnail[1]?.url || 'images/images.webp'}
+              className="w-full md:h-[200px] sm:h-[400px] h-[200px] sm:rounded-xl object-cover object-center cursor-pointer"
               onClick={Render}
               alt="logo"
             />
@@ -82,14 +82,14 @@ const VideoCard = (props) => {
                     {video.channelTitle}{" "}
                   </h4>
                   <img
-                    src="./images/verify.png"
+                    src="./images/verify.webp"
                     className="self-center mx-2 w-3 h-auto"
                     alt="verify"
                   />
                 </div>
                 <div className="mt-1">
                   {video.isLive ? (
-                    <img src="/images/live.png" className="w-4" alt="live" />
+                    <img src="/images/live.webp" className="w-4" alt="live" />
                   ) : (
                     <h4 className="mainpage-channelTitle sm:text-xs">
                       {ViewConverter(video.viewCount)} •{" "}

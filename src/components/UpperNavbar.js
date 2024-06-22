@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Context from "../context/Context";
 import { useLocation, useNavigate } from "react-router-dom";
 import { IoIosAddCircle, IoMdSearch } from "react-icons/io";
+import { FaRegUserCircle } from "react-icons/fa";
 import { FaBell, FaMicrophone } from "react-icons/fa6";
 
 const UpperNavbar = () => {
@@ -40,7 +41,7 @@ const UpperNavbar = () => {
           <li className="flex items-center justify-center">
             <div className=" flex justify-center items-center mx-3">
               <img
-                src="/images/youtube.png"
+                src="/images/youtube.webp"
                 className="w-[75px] h-auto cursor-pointer"
                 onClick={() => {
                   Navigate("/");
@@ -83,7 +84,7 @@ const UpperNavbar = () => {
                 className="w-8 h-8 rounded-full flex justify-center items-center mx-3 cursor-pointer"
                 title="Account"
               >
-                <img src="/images/user.png" className="h-full w-full" alt="user" />
+                <FaRegUserCircle className="text-3xl" />
               </div>
             </div>
           </li>

@@ -8,7 +8,7 @@ const Home = () => {
   const { loading } = useContext(Context);
   return (
     <>
-      <div className="relative top-[calc(60px+3rem)] p-3 homepage">
+      <div className="relative top-[calc(60px+3rem)] sm:p-3 homepage">
         <UpperMenubar />
         {!loading && <MainPageVideos />}
         {loading && <Spinner />}

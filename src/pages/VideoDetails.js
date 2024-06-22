@@ -21,13 +21,12 @@ const VideoDetails = () => {
     });
   };
   return (
-    <div className="flex justify-center relative top-[60px] videoDetailpage">
+    <div className="flex relative lg:h-[100vh] flex-col sm:items-center lg:flex-row mb-[50px] lg:mb-0">
       <Video />
       <SuggestVideo setLoading={setLoading} />
       <div
-        className={`fixed right-[10px] bottom-[50px] cursor-pointer flex justify-center items-center rounded-full w-10 h-10 bg-${
-          theme === "light" ? "white" : "black"
-        } text-${theme === "light" ? "black" : "white"}`}
+        className={`fixed right-[10px] bottom-[50px] cursor-pointer flex justify-center items-center rounded-full w-10 h-10 bg-${theme === "light" ? "white" : "black"
+          } text-${theme === "light" ? "black" : "white"}`}
         onClick={moveTotop}
       >
         <i className="fa-solid fa-arrow-up fa-xl"></i>

@@ -13,7 +13,7 @@ const PlaylistCard = (props) => {
         <div className='w-full relative'>
           <img src={video?.thumbnail[3]?.url || video?.thumbnail[0].url} title='Playlist' onClick={Render} className='w-full rounded-xl object-cover cursor-pointer ChannelVideosThumbnail' alt="logo" />
           <div className='text-white text-center absolute right-2 bottom-2'>
-            <img src="/images/playlist.png" className='w-7' alt="playlist" />
+            <img src="/images/playlist.webp" className='w-7' alt="playlist" />
           </div>
         </div>
         <div className='mt-1 mb-5 text-gray-00 ChannelVideosText'>
