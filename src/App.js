@@ -12,7 +12,7 @@ import ShortVideos from './pages/ShortVideos'
 import PlaylistDetails from './pages/PlaylistDetails'
 import BottomNavbar from './components/BottomNavbar';
 import Trending from './pages/Trending';
-import TreasureHunt from './pages/TreasureHunt';
+// import TreasureHunt from './pages/TreasureHunt';
 
 function App() {
   const location = useLocation();
