@@ -69,14 +69,14 @@ const VideoCard = (props) => {
                 alt=""
               />
             )}
-            <div className="mx-3">
-              <h4 className="leading-5 font-bold text-sm">
+            <div className="mx-3  text-sm sm:text-xs">
+              <h4 className="font-semibold">
                 {video?.title}
               </h4>
               <div className="my-1 text-gray-00">
-                <div className="flex sm:text-xs">
+                <div className="flex">
                   <h4
-                    className="font-semibold cursor-pointer"
+                    className="font-bold cursor-pointer"
                     onClick={gotoChannel}
                   >
                     {video.channelTitle}{" "}
@@ -91,7 +91,7 @@ const VideoCard = (props) => {
                   {video.isLive ? (
                     <img src="/images/live.webp" className="w-4" alt="live" />
                   ) : (
-                    <h4 className="sm:text-xs">
+                    <h4>
                       {ViewConverter(video.viewCount)} •{" "}
                       {video.publishedTimeText}{" "}
                     </h4>

@@ -12,7 +12,7 @@ const PlaylistVideoCard = (props) => {
     <>
       <div
         className={`flex flex-col md:w-[calc(33.33%-0.333rem)] lg:w-[calc(25%-0.375rem)] sm:w-[calc(50%-0.25rem)] w-full text-${theme === "light" ? "black" : "white"
-          }`}
+          }  text-sm sm:text-xs`}
       >
         <div className="w-full relative">
           <img
@@ -24,7 +24,7 @@ const PlaylistVideoCard = (props) => {
           <div className="text-white text-center absolute right-2 bottom-2">
             <h5
               className={`${video.lengthText === "LIVE" ? "bg-red-600" : "bg-black"
-                } px-1  rounded-[7px] text-xs`}
+                } px-1  rounded-[7px]`}
             >
               {video.isLive ? (
                 <p> • {video.lengthText}</p>
@@ -34,14 +34,14 @@ const PlaylistVideoCard = (props) => {
             </h5>
           </div>
         </div>
-        <div className="flex m-1 text-xs md:text-sm">
+        <div className="flex m-1">
           <div>
-            <h4 className="leading-5 font-bold">
+            <h4 className="font-semibold">
               {video?.title}
             </h4>
             <div className="my-1">
               <div className="flex ">
-                <h4 className="font-semibold">{video.channelTitle} </h4>
+                <h4 className="font-bold">{video.channelTitle} </h4>
                 <img
                   src="/images/verify.webp"
                   className="self-center mx-2 w-3"

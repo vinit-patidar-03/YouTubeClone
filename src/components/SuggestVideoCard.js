@@ -33,7 +33,7 @@ const SuggestVideoCard = (props) => {
     <>
       <div
         className={`sm:w-[calc(50%-0.25rem)] lg:w-[100%] text-${theme === "light" ? "black" : "white"
-          }`}
+          }  text-sm sm:text-xs`}
       >
         <div className="flex flex-col mb-5">
           <div className="thumb relative">
@@ -46,7 +46,7 @@ const SuggestVideoCard = (props) => {
             <div className="text-white text-center absolute right-2 bottom-2">
               <h5
                 className={`${video.lengthText === "LIVE" ? "bg-red-600" : "bg-black"
-                  } px-1  rounded-[7px] text-xs`}
+                  } px-1  rounded-[7px]`}
               >
                 {video.isLive ? (
                   <p> • {video.lengthText}</p>
@@ -58,12 +58,12 @@ const SuggestVideoCard = (props) => {
           </div>
 
           <div className="mx-3">
-            <h4 className="leading-4 mt-2 font-semibold text-[10px]">
+            <h4 className="mt-2 font-semibold">
               {video?.title}
             </h4>
             <div className="hidden lg:block">
               <div className="flex items-center">
-                <h5 className="text-xs">{video?.channelTitle} </h5>
+                <h5 className="font-bold">{video?.channelTitle} </h5>
                 <img
                   src="/images/verify.webp"
                   className="self-center mx-2 w-3"
@@ -71,7 +71,7 @@ const SuggestVideoCard = (props) => {
                 />
               </div>
               {video.isLive ? (
-                <h6 className="flex items-center text-xs my-2">
+                <h6 className="flex items-center my-2">
                   <img
                     src="/images/live.webp"
                     width="20px"
@@ -82,7 +82,7 @@ const SuggestVideoCard = (props) => {
               ) : (
                 <h6
                   className={`${theme === "light" ? "text-gray-500" : "text-gray-200"
-                    } text-[10px] my-1 suggestVideoCount`}
+                    } my-1`}
                 >
                   {ViewConverter(video?.viewCount)} views •{" "}
                   {video?.publishedTimeText}
@@ -90,23 +90,23 @@ const SuggestVideoCard = (props) => {
               )}
             </div>
             <div className="lg:hidden">
-              <div className="flex items-center text-xs">
+              <div className="flex items-center mt-2">
                 {video.channelThumbnail.length !== 0 && (
                   <img
-                    src={video.channelThumbnail[0].url}
-                    width="20px"
+                    src={video?.channelThumbnail[0].url}
+                    width="30px"
                     className="rounded-full mr-2"
-                    alt=""
+                    alt="channel"
                   />
                 )}
-                {video?.channelTitle}{" "}
+                <h5 className="font-bold">{video?.channelTitle}</h5>{" "}
                 <img
                   src="/images/verify.webp"
                   className="self-center mx-2 w-3"
                   alt="verify"
                 />
                 {video.isLive && (
-                  <div className="flex items-center text-sm my-2">
+                  <div className="flex items-center my-2">
                     <img
                       src="/images/live.webp"
                       width="20px"
@@ -116,7 +116,7 @@ const SuggestVideoCard = (props) => {
                   </div>
                 )}
                 <p
-                  className={`text-[10px] my-2 ${theme === "light" ? "text-gray-500" : "text-gray-200"
+                  className={`my-2 ${theme === "light" ? "text-gray-500" : "text-gray-200"
                     }`}
                 >
                   {ViewConverter(video?.viewCount)} views •{" "}
