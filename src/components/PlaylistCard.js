@@ -9,14 +9,14 @@ const PlaylistCard = (props) => {
   }
   return (
     <>
-      <div className='flex flex-col relative w-60 m-3 ChannelVideosCard'>
+      <div className='flex flex-col relative w-full sm:w-[calc(50%-0.25rem)] lg:w-[calc(25%-0.375rem)] md:w-[calc(33.33%-0.333rem)]'>
         <div className='w-full relative'>
-          <img src={video?.thumbnail[3]?.url || video?.thumbnail[0].url} title='Playlist' onClick={Render} className='w-full rounded-xl object-cover cursor-pointer ChannelVideosThumbnail' alt="logo" />
+          <img src={video?.thumbnail[3]?.url || video?.thumbnail[0].url} title='Playlist' onClick={Render} className='w-full sm:rounded-xl object-cover cursor-pointer' alt="logo" />
           <div className='text-white text-center absolute right-2 bottom-2'>
             <img src="/images/playlist.webp" className='w-7' alt="playlist" />
           </div>
         </div>
-        <div className='mt-1 mb-5 text-gray-00 ChannelVideosText'>
+        <div className='m-1 mb-5'>
           <h4 className='leading-5 font-bold text-xs md:text-sm'>{video?.title}</h4>
         </div>
       </div>

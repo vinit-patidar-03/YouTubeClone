@@ -4,6 +4,7 @@ import SuggestVideo from "../components/SuggestedVideos";
 import { useParams } from "react-router-dom";
 import Context from "../context/Context";
 import Spinner from "../components/Spinner";
+import { FaArrowUp } from "react-icons/fa";
 
 const VideoDetails = () => {
   const { theme } = useContext(Context);
@@ -29,7 +30,7 @@ const VideoDetails = () => {
           } text-${theme === "light" ? "black" : "white"}`}
         onClick={moveTotop}
       >
-        <i className="fa-solid fa-arrow-up fa-xl"></i>
+        <FaArrowUp className="text-lg" />
       </div>
       {loading && <Spinner />}
     </div>

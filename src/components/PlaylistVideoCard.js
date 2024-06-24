@@ -11,14 +11,14 @@ const PlaylistVideoCard = (props) => {
   return (
     <>
       <div
-        className={`flex flex-col w-[95%] md:w-[30%] m-3 text-${theme === "light" ? "black" : "white"
+        className={`flex flex-col md:w-[calc(33.33%-0.333rem)] lg:w-[calc(25%-0.375rem)] sm:w-[calc(50%-0.25rem)] w-full text-${theme === "light" ? "black" : "white"
           }`}
       >
         <div className="w-full relative">
           <img
             src={video?.thumbnail[2]?.url || video?.thumbnail[0]?.url}
             onClick={Render}
-            className="w-full rounded-xl object-cover cursor-pointer"
+            className="w-full sm:rounded-xl object-cover cursor-pointer"
             alt="logo"
           />
           <div className="text-white text-center absolute right-2 bottom-2">
@@ -34,13 +34,13 @@ const PlaylistVideoCard = (props) => {
             </h5>
           </div>
         </div>
-        <div className="flex my-2">
+        <div className="flex m-1 text-xs md:text-sm">
           <div>
-            <h4 className="leading-5 font-bold text-xs">
+            <h4 className="leading-5 font-bold">
               {video?.title}
             </h4>
-            <div className="my-1 text-gray-00">
-              <div className="flex sm:text-xs">
+            <div className="my-1">
+              <div className="flex ">
                 <h4 className="font-semibold">{video.channelTitle} </h4>
                 <img
                   src="/images/verify.webp"
@@ -52,7 +52,7 @@ const PlaylistVideoCard = (props) => {
                 {video.isLive ? (
                   <img src="/images/live.png" className="w-4" alt="live" />
                 ) : (
-                  <h4 className="sm:text-xs">
+                  <h4>
                     {video.viewCountText} • {video.publishedTimeText}{" "}
                   </h4>
                 )}

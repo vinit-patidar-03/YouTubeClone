@@ -58,7 +58,7 @@ const SearchResultCard = (props) => {
             </div>
 
             <div className={`text-${theme === 'light' ? 'black' : 'white'} block sm:hidden`}>
-              <div className='flex items-center my-3 text-xs'>
+              <div className='flex items-center text-xs'>
                 {<img src={video.channelThumbnail[0].url} width='20px' className='rounded-full mr-2' alt="" />}
                 <h5 onClick={() => { Navigate(`/channelDetails/${video.channelId}`) }}>{video?.channelTitle}</h5>
                 <img src="/images/verify.webp" className='self-center mx-2 w-3' alt="verify" />

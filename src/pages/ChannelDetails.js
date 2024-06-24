@@ -2,6 +2,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { GrFormNext } from "react-icons/gr";
 import { GrFormPrevious } from "react-icons/gr";
+import { FaArrowUp } from 'react-icons/fa'
 import Context from "../context/Context";
 import ChannelVideos from "../components/ChannelVideos";
 import { useParams } from "react-router-dom";
@@ -85,7 +86,7 @@ const ChannelDetails = () => {
     <>
       {channel && (
         <div
-          className={`mb-[50px] text-${theme === "light" ? "black" : "white"}`}
+          className={`text-${theme === "light" ? "black" : "white"}`}
           id="top"
         >
           <div className="mt-[60px]">
@@ -98,15 +99,15 @@ const ChannelDetails = () => {
             )}
           </div>
 
-          <div className="flex my-2 ml-5">
-            <div className="flex">
+          <div className="flex my-2 ml-5 ">
+            <div className="flex items-start">
               <img
                 src={channel.meta.avatar[0].url}
-                className="rounded-full ChannelDetailpageAvatar"
+                className="rounded-full w-[50px]"
                 alt="avatar"
               />
             </div>
-            <div className="ml-5 mt-3">
+            <div className="ml-2">
               <div className="flex items-center">
                 <h3 className="font-bold">{channel.meta.title}</h3>
                 <img
@@ -115,12 +116,14 @@ const ChannelDetails = () => {
                   alt="verify"
                 />
               </div>
-              <div className="flex ChannelDetailpageText">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <h5>{channel.meta.channelHandle}</h5>
-                <h5 className="ml-3">
-                  {channel.meta.subscriberCountText} subscribers
-                </h5>
-                <h5 className="ml-3">{channel.meta.videosCount} videos</h5>
+                <div className="flex gap-2">
+                  <h5>
+                    {channel.meta.subscriberCountText} subscribers
+                  </h5>
+                  <h5>{channel.meta.videosCount} videos</h5>
+                </div>
               </div>
               <div className="mt-2 text-xs">
                 <p>{channel.meta.description.split(" ")[0]}...</p>
@@ -183,9 +186,9 @@ const ChannelDetails = () => {
           <main className="relative">
             <section
               id="Live"
-              className={`pb-[60px] ${active === "#Live" ? "block" : "hidden"}`}
+              className={`${active === "#Live" ? "block" : "hidden"} mb-[50px]`}
             >
-              <div className="flex flex-wrap justify-center my-5">
+              <div className="flex flex-wrap my-5 gap-2 sm:p-2">
                 {channel.data.filter((elem) => {
                   return (
                     elem.type === "video_listing" &&
@@ -222,7 +225,7 @@ const ChannelDetails = () => {
               className={` absolute top-0 ${active === "#Videos" ? "block" : "hidden"
                 }`}
             >
-              <div className="flex flex-wrap justify-center my-5">
+              <div className="flex flex-wrap my-5 sm:p-2 gap-2 mb-[50px]">
                 {channelVideos.length !== 0 &&
                   channelVideos.map((elem, index) => {
                     return <ChannelVideos video={elem} key={index} cid={cid} />;
@@ -248,7 +251,7 @@ const ChannelDetails = () => {
               {playlist.length !== 0 &&
                 playlist[playlistpage].type === "playlist_listing" ? (
                 <div>
-                  <div className="flex flex-wrap justify-center my-5">
+                  <div className="flex flex-wrap my-5 sm:p-2 gap-2 mb-[50px]">
                     {playlist[playlistpage].type === "playlist_listing"
                       ? playlist[playlistpage].data.map((elem, index) => {
                         return (
@@ -280,7 +283,7 @@ const ChannelDetails = () => {
                   </div>
                 </div>
               ) : (
-                <div className="flex flex-wrap justify-center my-5">
+                <div className="flex flex-wrap my-5 sm:p-2 gap-2 mb-[50px]">
                   {playlist.length !== 0 &&
                     playlist.map((elem, index) => {
                       return (
@@ -296,7 +299,7 @@ const ChannelDetails = () => {
               className={` absolute top-0 ${active === "#Shorts" ? "block" : "hidden"
                 }`}
             >
-              <div className="flex flex-wrap justify-center my-5">
+              <div className="flex flex-wrap justify-center my-5 mb-[50px]">
                 {channel.data.filter((elem) => {
                   return elem.type === "shorts_listing";
                 }).length !== 0 &&
@@ -323,7 +326,7 @@ const ChannelDetails = () => {
                 }`}
             >
               <div>
-                <div className="flex justify-center flex-wrap my-5">
+                <div className="flex justify-center flex-wrap my-5 mb-[50px]">
                   {channel.data.filter((elem) => {
                     return elem.type === "channel_listing";
                   }).length !== 0 &&
@@ -351,7 +354,7 @@ const ChannelDetails = () => {
               }`}
             onClick={moveTotop}
           >
-            <i className="fa-solid fa-arrow-up fa-xl"></i>
+            <FaArrowUp className="text-xl" />
           </div>
         </div>
       )}

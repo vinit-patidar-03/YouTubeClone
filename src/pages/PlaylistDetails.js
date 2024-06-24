@@ -23,17 +23,17 @@ const PlaylistDetails = (props) => {
     <>
       {channelPlaylistsVideos ? (
         <div className="mb-[50px]">
-          <div className="flex justify-center">
+          <div className="flex sm:p-2">
             {channelPlaylistsVideos && (
               <div
-                className={`mt-[80px] rounded-lg w-[95%] m-3 flex flex-wrap md:flex-nowrap text-${theme === "light" ? "black" : "white"
+                className={`mt-[80px] w-full rounded-lg flex flex-wrap md:flex-nowrap text-${theme === "light" ? "black" : "white"
                   }`}
                 style={{
                   backgroundColor: `${theme === "light" ? "#FFFBF5" : "#141414"
                     }`,
                 }}
               >
-                <div className="w-full md:w-[50%] lg:w-[30%] relative">
+                <div className=" w-full lg:w-[calc(25%-0.375rem)] md:w-[calc(33.33%-0.333rem)] sm:w-[calc(50%-0.25rem)] relative">
                   <img
                     src={
                       channelPlaylistsVideos?.meta?.thumbnail[3]?.url ||
@@ -50,11 +50,11 @@ const PlaylistDetails = (props) => {
                     />
                   </div>
                 </div>
-                <div className="md:ml-3 ">
+                <div className="m-2 ">
                   <h1 className="font-bold text-lg">
                     {channelPlaylistsVideos.meta.title}
                   </h1>
-                  <h3 className="font-semibold mt-2 text-sm">
+                  <h3 className="font-semibold text-sm">
                     {channelPlaylistsVideos.meta.channelTitle}
                   </h3>
                   <div className="flex mt-3">
@@ -75,7 +75,7 @@ const PlaylistDetails = (props) => {
 
           <hr className="my-3 mx-3 h-[2px] bg-black" />
 
-          <div className="flex flex-wrap justify-center">
+          <div className="flex flex-wrap gap-2 sm:p-2">
             {channelPlaylistsVideos &&
               channelPlaylistsVideos.data.map((elem, index) => {
                 return <PlaylistVideoCard video={elem} key={index} />;
